@@ -1,0 +1,32 @@
+
+input_file: "Input/rawdata.csv"
+output_dir: "Output/generated"
+
+ollama:
+  base_url: "http://localhost:11434"
+  # Default model to use. Options: local_small, local_medium, cloud_large, cloud_huge
+  selected_model: "gpt-oss:120b-cloud" 
+  
+  models:
+    local_small: "deepseek-r1:8b"
+    local_medium: "gpt-oss:20b"
+    cloud_large: "gpt-oss:120b-cloud"
+    cloud_huge: "deepseek-v3.1:671b-cloud"
+
+extraction:
+  system_prompt: |
+    You are an expert researcher. Your task is to extract structured information from scientific paper abstracts.
+    Extract the following four components:
+    1. Research Background
+    2. Research Purpose
+    3. Research Methodology
+    4. Research Results and Effects
+    
+    Return the result in strictly valid JSON format with keys: "background", "purpose", "methodology", "results".
+    Each value should be a concise list of strings (1-3 key points per category).
+    Do not include any other text.
+    
+similarity:
+  enabled: true
+  threshold: 0.5
+  embedding_model: "nomic-embed-text" # or use one of the generation models if it supports embeddings, but dedicated is better.

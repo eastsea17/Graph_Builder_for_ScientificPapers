@@ -1,0 +1,189 @@
+<style>
+.lx-highlight { position: relative; border-radius:3px; padding:1px 2px;}
+.lx-highlight .lx-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  max-width: 240px;
+  white-space: normal;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.lx-highlight:hover .lx-tooltip { visibility: visible; opacity:1; }
+.lx-animated-wrapper { max-width: 100%; font-family: Arial, sans-serif; }
+.lx-controls {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 8px;
+  padding: 12px; margin-bottom: 16px;
+}
+.lx-button-row {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 12px;
+}
+.lx-control-btn {
+  background: #4285f4; color: white; border: none; border-radius: 4px;
+  padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: background-color 0.2s;
+}
+.lx-control-btn:hover { background: #3367d6; }
+.lx-progress-container {
+  margin-bottom: 8px;
+}
+.lx-progress-slider {
+  width: 100%; margin: 0; appearance: none; height: 6px;
+  background: #ddd; border-radius: 3px; outline: none;
+}
+.lx-progress-slider::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px; background: #4285f4;
+  border-radius: 50%; cursor: pointer;
+}
+.lx-progress-slider::-moz-range-thumb {
+  width: 18px; height: 18px; background: #4285f4; border-radius: 50%;
+  cursor: pointer; border: none;
+}
+.lx-status-text {
+  text-align: center; font-size: 12px; color: #666; margin-top: 4px;
+}
+.lx-text-window {
+  font-family: monospace; white-space: pre-wrap; border: 1px solid #90caf9;
+  padding: 12px; max-height: 260px; overflow-y: auto; margin-bottom: 12px;
+  line-height: 1.6;
+}
+.lx-attributes-panel {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 6px;
+  padding: 8px 10px; margin-top: 8px; font-size: 13px;
+}
+.lx-current-highlight {
+  border-bottom: 4px solid #ff4444;
+  font-weight: bold;
+  animation: lx-pulse 1s ease-in-out;
+}
+@keyframes lx-pulse {
+  0% { text-decoration-color: #ff4444; }
+  50% { text-decoration-color: #ff0000; }
+  100% { text-decoration-color: #ff4444; }
+}
+.lx-legend {
+  font-size: 12px; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #e0e0e0;
+}
+.lx-label {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 4px;
+  color: #000;
+}
+.lx-attr-key {
+  font-weight: 600;
+  color: #1565c0;
+  letter-spacing: 0.3px;
+}
+.lx-attr-value {
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 0.2px;
+}
+
+/* Add optimizations with larger fonts and better readability for GIFs */
+.lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
+.lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
+.lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
+</style>
+<div class="lx-animated-wrapper lx-gif-optimized">
+  <div class="lx-attributes-panel">
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span> <span class="lx-label" style="background-color:#FEF0C3;">Purpose</span> <span class="lx-label" style="background-color:#F9DEDC;">Results</span></div>
+    <div id="attributesContainer"></div>
+  </div>
+  <div class="lx-text-window" id="textWindow">
+    Objectives . This <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#C8E6C9;">network meta‐analysis (NMA) was designed <span class="lx-highlight" data-idx="1" style="background-color:#FEF0C3;">to assess</span> <span class="lx-highlight" data-idx="2" style="background-color:#D2E3FC;">the comparative effectiveness and safety of oral Chinese patent medicines combined with chemotherapy for gastric cancer on the National Basic Medical Insurance Drugs List of China.</span> Methods . A comprehensive literature search was performed in seven electronic databases from their inception to February 25, 2020, aiming to collect all related randomized controlled trials (RCTs) to evaluate the effectiveness and safety of oral Chinese patent medicines as an adjuvant for gastric cancer. Two researchers independently screened the literature, extracted data, and assessed the risk of bias of included studies using the Cochrane Risk of Bias Scale. NMA was then performed by using STATA 16.0 software and ADDIS 1.16.8 software.</span> Results . Finally, <span class="lx-highlight" data-idx="3" style="background-color:#F9DEDC;">30 RCTs</span> were included, involving seven kinds of oral Chinese patent medicines, with a total of 2602 patients. For improvement of clinical efficacy, Bazhen granule combined with chemotherapy was ranked first for effectiveness, followed by the Cinobufacin capsule combined with chemotherapy and Xiao’aiping tablet combined with chemotherapy. Meanwhile, Bazhen granules combined with chemotherapy also were ranked first in reducing gastrointestinal reactions. In terms of improving performance status, the Xiao’aiping tablet was the best and significantly better than other oral Chinese patent medicines. Besides, the Zhenqi Fuzheng granule combined with chemotherapy was best for reducing the incidence of leucopenia. Conclusions . Since only one RCT of Bazhen granule was included in this study for analysis, its statistical efficiency is low. Therefore, this study recommends that the Cinobufacin capsule combined with chemotherapy should be a priority in improving clinical efficacy. In terms of improving patients’ quality of life, Xiao’aiping tablet is the best choice. Safety was best for Zhenqi Fuzheng granule and Bazhen granule combined with chemotherapy. Limited by the quantity, quality, and possible bias of included studies, the above conclusions need to be further verified by more high‐quality RCTs.
+  </div>
+  <div class="lx-controls">
+    <div class="lx-button-row">
+      <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+      <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+      <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+    </div>
+    <div class="lx-progress-container">
+      <input type="range" id="progressSlider" class="lx-progress-slider"
+             min="0" max="3" value="0"
+             onchange="jumpToExtraction(this.value)">
+    </div>
+    <div class="lx-status-text">
+      Entity <span id="entityInfo">1/4</span> |
+      Pos <span id="posInfo">[69-249]</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const extractions = [{"index": 0, "class": "Methodology", "text": "Conducted a network meta\u2011analysis using STATA 16.0 and ADDIS 1.16.8 software.", "color": "#C8E6C9", "startPos": 18, "endPos": 794, "beforeText": "Objectives . This ", "extractionText": "network meta\u2010analysis (NMA) was designed to assess the comparative effectiveness and safety of oral Chinese patent medicines combined with chemotherapy for gastric cancer on the National Basic Medical Insurance Drugs List of China. Methods . A comprehensive literature search was performed in seven electronic databases from their inception to February 25, 2020, aiming to collect all related randomized controlled trials (RCTs) to evaluate the effectiveness and safety of oral Chinese patent medicines as an adjuvant for gastric cancer. Two researchers independently screened the literature, extracted data, and assessed the risk of bias of included studies using the Cochrane Risk of Bias Scale. NMA was then performed by using STATA 16.0 software and ADDIS 1.16.8 software.", "afterText": " Results . Finally, 30 RCTs were included, involving seven kinds of oral Chinese patent medicines, with a total of 2602 patients. For improvement of c", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Purpose", "text": "To assess and compare the effectiveness and safety of oral Chinese patent medicines combined with chemotherapy for gastric cancer.", "color": "#FEF0C3", "startPos": 59, "endPos": 68, "beforeText": "Objectives . This network meta\u2010analysis (NMA) was designed ", "extractionText": "to assess", "afterText": " the comparative effectiveness and safety of oral Chinese patent medicines combined with chemotherapy for gastric cancer on the National Basic Medical", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Background", "text": "The comparative effectiveness and safety of these patent medicines listed on the National Basic Medical Insurance Drugs List remain uncertain.", "color": "#D2E3FC", "startPos": 69, "endPos": 249, "beforeText": "Objectives . This network meta\u2010analysis (NMA) was designed to assess ", "extractionText": "the comparative effectiveness and safety of oral Chinese patent medicines combined with chemotherapy for gastric cancer on the National Basic Medical Insurance Drugs List of China.", "afterText": " Methods . A comprehensive literature search was performed in seven electronic databases from their inception to February 25, 2020, aiming to collect ", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 3, "class": "Results", "text": "30 RCTs (2602 patients) involving seven oral Chinese patent medicines were included.", "color": "#F9DEDC", "startPos": 814, "endPos": 821, "beforeText": "uded studies using the Cochrane Risk of Bias Scale. NMA was then performed by using STATA 16.0 software and ADDIS 1.16.8 software. Results . Finally, ", "extractionText": "30 RCTs", "afterText": " were included, involving seven kinds of oral Chinese patent medicines, with a total of 2602 patients. For improvement of clinical efficacy, Bazhen gr", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    let currentIndex = 0;
+    let isPlaying = false;
+    let animationInterval = null;
+    let animationSpeed = 1.0;
+
+    function updateDisplay() {
+      const extraction = extractions[currentIndex];
+      if (!extraction) return;
+
+      document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+      document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+      document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+      document.getElementById('progressSlider').value = currentIndex;
+
+      const playBtn = document.querySelector('.lx-control-btn');
+      if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+      const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+      if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+      const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+      if (currentSpan) {
+        currentSpan.classList.add('lx-current-highlight');
+        currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+      }
+    }
+
+    function nextExtraction() {
+      currentIndex = (currentIndex + 1) % extractions.length;
+      updateDisplay();
+    }
+
+    function prevExtraction() {
+      currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+      updateDisplay();
+    }
+
+    function jumpToExtraction(index) {
+      currentIndex = parseInt(index);
+      updateDisplay();
+    }
+
+    function playPause() {
+      if (isPlaying) {
+        clearInterval(animationInterval);
+        isPlaying = false;
+      } else {
+        animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+        isPlaying = true;
+      }
+      updateDisplay();
+    }
+
+    window.playPause = playPause;
+    window.nextExtraction = nextExtraction;
+    window.prevExtraction = prevExtraction;
+    window.jumpToExtraction = jumpToExtraction;
+
+    updateDisplay();
+  })();
+</script>

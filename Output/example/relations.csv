@@ -1,0 +1,600 @@
+Source,Target,Type,Weight
+Paper_1,measure firm-level technology convergence capability,HAS_PURPOSE,1.0
+Paper_1,understand innovation strategy for technological capabilities,HAS_PURPOSE,1.0
+Paper_1,convergence between manufacturing technology and Industry 4.0 foundation technologies,HAS_BACKGROUND,1.0
+Paper_1,previous work on innovation strategy,HAS_BACKGROUND,1.0
+Paper_1,patent network analysis,HAS_METHODOLOGY,1.0
+Paper_1,three centrality indices,HAS_METHODOLOGY,1.0
+Paper_1,panel regression,HAS_METHODOLOGY,1.0
+Paper_1,empirical analysis on top 30 firms,HAS_METHODOLOGY,1.0
+Paper_1,TC degree positively influences overall innovation,HAS_RESULTS,1.0
+Paper_1,TC degree negatively influences convergent innovation,HAS_RESULTS,1.0
+Paper_1,TC betweenness has opposite effect,HAS_RESULTS,1.0
+Paper_1,convergent innovation is ratio of TC patents to total patents,HAS_RESULTS,1.0
+Paper_2,Propose hybrid-patent-classification approach,HAS_PURPOSE,1.0
+Paper_2,Effective patent management essential,HAS_BACKGROUND,1.0
+Paper_2,Patent classification critical,HAS_BACKGROUND,1.0
+Paper_2,Conventional classification methods exist,HAS_BACKGROUND,1.0
+Paper_2,Hybrid approach combining novel patent-network-based method,HAS_METHODOLOGY,1.0
+Paper_2,Three conventional methods,HAS_METHODOLOGY,1.0
+Paper_2,Content-based classification,HAS_METHODOLOGY,1.0
+Paper_2,Citation-based classification,HAS_METHODOLOGY,1.0
+Paper_2,Metadata-based classification,HAS_METHODOLOGY,1.0
+Paper_2,Modified k-nearest neighbor classifier,HAS_METHODOLOGY,1.0
+Paper_2,Reachable nodes analysis,HAS_METHODOLOGY,1.0
+Paper_2,Relevance calculation,HAS_METHODOLOGY,1.0
+Paper_2,Hybrid approach yields more accurate class predictions,HAS_RESULTS,1.0
+Paper_2,Outperforms conventional methods,HAS_RESULTS,1.0
+Paper_2,Patent-network-based approach improves accuracy,HAS_RESULTS,1.0
+Paper_3,finding patterns of convergence,HAS_PURPOSE,1.0
+Paper_3,identify variables affecting convergence,HAS_PURPOSE,1.0
+Paper_3,technological convergence in robotics,HAS_BACKGROUND,1.0
+Paper_3,network analysis of patents,HAS_BACKGROUND,1.0
+Paper_3,quadratic assignment procedures,HAS_METHODOLOGY,1.0
+Paper_3,QAP,HAS_METHODOLOGY,1.0
+Paper_3,patent network analysis,HAS_METHODOLOGY,1.0
+Paper_3,patent network ecology related to convergence,HAS_RESULTS,1.0
+Paper_3,technologies with potential to converge,HAS_RESULTS,1.0
+Paper_3,convergence-based R&D policies,HAS_RESULTS,1.0
+Paper_4,understand quantum ecosystem,HAS_PURPOSE,1.0
+Paper_4,push quantum movements,HAS_PURPOSE,1.0
+Paper_4,quantum technologies transformative,HAS_BACKGROUND,1.0
+Paper_4,quantum ecosystem critical,HAS_BACKGROUND,1.0
+Paper_4,articles lack interconnected relations,HAS_BACKGROUND,1.0
+Paper_4,innovation ecosystem theory,HAS_METHODOLOGY,1.0
+Paper_4,social-technical system theory,HAS_METHODOLOGY,1.0
+Paper_4,patent network analysis,HAS_METHODOLOGY,1.0
+Paper_4,quantum computation subfield,HAS_RESULTS,1.0
+Paper_4,long-term attributes backgrounds,HAS_RESULTS,1.0
+Paper_4,path toward focal actor,HAS_RESULTS,1.0
+Paper_5,structure technology convergence network,HAS_PURPOSE,1.0
+Paper_5,integrate different results,HAS_PURPOSE,1.0
+Paper_5,analyze patent network characteristics,HAS_PURPOSE,1.0
+Paper_5,large database of patent,HAS_BACKGROUND,1.0
+Paper_5,technology convergence,HAS_BACKGROUND,1.0
+Paper_5,previous work on patent network,HAS_BACKGROUND,1.0
+Paper_5,patent co-class analysis,HAS_METHODOLOGY,1.0
+Paper_5,patent citation analysis,HAS_METHODOLOGY,1.0
+Paper_5,centrality analysis,HAS_METHODOLOGY,1.0
+Paper_5,association rule mining,HAS_METHODOLOGY,1.0
+Paper_5,brokerage network analysis,HAS_METHODOLOGY,1.0
+Paper_5,core safety fields compared,HAS_RESULTS,1.0
+Paper_5,medical safety,HAS_RESULTS,1.0
+Paper_5,working safety,HAS_RESULTS,1.0
+Paper_5,vehicle safety,HAS_RESULTS,1.0
+Paper_5,detailed technology in core patent class,HAS_RESULTS,1.0
+Paper_5,implications for stakeholders,HAS_RESULTS,1.0
+Paper_5,support collective decision making,HAS_RESULTS,1.0
+Paper_6,Propose a novel patent network-based classification method,HAS_PURPOSE,1.0
+Paper_6,Patent management is essential for competitive advantage,HAS_BACKGROUND,1.0
+Paper_6,Classification of patents is essential for patent management,HAS_BACKGROUND,1.0
+Paper_6,Construct patent network with various types of nodes,HAS_METHODOLOGY,1.0
+Paper_6,Analyze reachable nodes in patent ontology network,HAS_METHODOLOGY,1.0
+Paper_6,Use modified k-nearest neighbor classifier,HAS_METHODOLOGY,1.0
+Paper_6,Evaluate performance on USPTO dataset,HAS_METHODOLOGY,1.0
+Paper_6,Compare with conventional methods,HAS_METHODOLOGY,1.0
+Paper_6,Proposed approach outperforms conventional approaches,HAS_RESULTS,1.0
+Paper_6,Demonstrate superior performance on test dataset,HAS_RESULTS,1.0
+Paper_7,improve efficiency and quality of patent analysis,HAS_PURPOSE,1.0
+Paper_7,patent network analysis is a useful tool for technology management,HAS_BACKGROUND,1.0
+Paper_7,traditional methods of patent analysis exist,HAS_BACKGROUND,1.0
+Paper_7,current method has limitations,HAS_BACKGROUND,1.0
+Paper_7,artificial intelligence techniques,HAS_METHODOLOGY,1.0
+Paper_7,automated procedure for searching patent documents,HAS_METHODOLOGY,1.0
+Paper_7,extracting patent keywords,HAS_METHODOLOGY,1.0
+Paper_7,determining weight of each patent keyword,HAS_METHODOLOGY,1.0
+Paper_7,generate sophisticated visualization,HAS_METHODOLOGY,1.0
+Paper_7,proposes a novel method called intelligent patent network analysis,HAS_RESULTS,1.0
+Paper_7,method enables visual network with great precision,HAS_RESULTS,1.0
+Paper_7,verified utility with CNT-BLU patents,HAS_RESULTS,1.0
+Paper_8,Study appropriability efforts,HAS_PURPOSE,1.0
+Paper_8,Analyze technological trajectories,HAS_PURPOSE,1.0
+Paper_8,Patent citations networks,HAS_BACKGROUND,1.0
+Paper_8,Genetically modified organisms,HAS_BACKGROUND,1.0
+Paper_8,Identify technological trajectories,HAS_METHODOLOGY,1.0
+Paper_8,Study scale-free networks,HAS_METHODOLOGY,1.0
+Paper_8,Legal enforcement indicators,HAS_METHODOLOGY,1.0
+Paper_8,Effective in collecting royalties,HAS_RESULTS,1.0
+Paper_8,Deterring potential entrants,HAS_RESULTS,1.0
+Paper_8,Delaying R&D investments,HAS_RESULTS,1.0
+Paper_9,Propose a two-stage retrieval strategy,HAS_PURPOSE,1.0
+Paper_9,Systematic method for patent network analysis,HAS_PURPOSE,1.0
+Paper_9,Patent analysis of cloud computing,HAS_BACKGROUND,1.0
+Paper_9,Few attempts made,HAS_BACKGROUND,1.0
+Paper_9,Rise of cloud computing technology,HAS_BACKGROUND,1.0
+Paper_9,Bibliometric and network analyses,HAS_METHODOLOGY,1.0
+Paper_9,Two-stage patent retrieval method,HAS_METHODOLOGY,1.0
+Paper_9,Gray relational-based cluster analysis,HAS_METHODOLOGY,1.0
+Paper_9,Visual networks and technology centrality indexes,HAS_METHODOLOGY,1.0
+Paper_9,Identify patents belonging to cloud computing,HAS_RESULTS,1.0
+Paper_9,Reveal overall patent structure,HAS_RESULTS,1.0
+Paper_9,Identify key technologies,HAS_RESULTS,1.0
+Paper_9,Provide valuable reference for enterprises,HAS_RESULTS,1.0
+Paper_10,explore changes in global innovation networks,HAS_PURPOSE,1.0
+Paper_10,driving forces,HAS_PURPOSE,1.0
+Paper_10,global patent cooperation data,HAS_BACKGROUND,1.0
+Paper_10,1999 to 2020,HAS_BACKGROUND,1.0
+Paper_10,previous work,HAS_BACKGROUND,1.0
+Paper_10,social network analysis,HAS_METHODOLOGY,1.0
+Paper_10,global innovation networks,HAS_METHODOLOGY,1.0
+Paper_10,factor identification,HAS_METHODOLOGY,1.0
+Paper_10,network accessibility improved,HAS_RESULTS,1.0
+Paper_10,scale-free network characteristics,HAS_RESULTS,1.0
+Paper_10,China's position increasing,HAS_RESULTS,1.0
+measure firm-level technology convergence capability,understand innovation strategy for technological capabilities,RELATED_TO,0.6784703521525918
+measure firm-level technology convergence capability,finding patterns of convergence,RELATED_TO,0.6139399928850291
+measure firm-level technology convergence capability,identify variables affecting convergence,RELATED_TO,0.6191737264695514
+measure firm-level technology convergence capability,structure technology convergence network,RELATED_TO,0.761953997290195
+measure firm-level technology convergence capability,analyze patent network characteristics,RELATED_TO,0.576185214951777
+measure firm-level technology convergence capability,Propose a novel patent network-based classification method,RELATED_TO,0.5141158361779459
+measure firm-level technology convergence capability,Analyze technological trajectories,RELATED_TO,0.5203213155154438
+measure firm-level technology convergence capability,Systematic method for patent network analysis,RELATED_TO,0.5369941792695654
+measure firm-level technology convergence capability,explore changes in global innovation networks,RELATED_TO,0.5490912447025637
+understand innovation strategy for technological capabilities,Propose hybrid-patent-classification approach,RELATED_TO,0.5159826539841962
+understand innovation strategy for technological capabilities,structure technology convergence network,RELATED_TO,0.569704683089439
+understand innovation strategy for technological capabilities,analyze patent network characteristics,RELATED_TO,0.507084553700197
+understand innovation strategy for technological capabilities,Study appropriability efforts,RELATED_TO,0.5039922644084815
+understand innovation strategy for technological capabilities,Analyze technological trajectories,RELATED_TO,0.611044529976038
+understand innovation strategy for technological capabilities,explore changes in global innovation networks,RELATED_TO,0.5469910108813273
+Propose hybrid-patent-classification approach,analyze patent network characteristics,RELATED_TO,0.6356668124064467
+Propose hybrid-patent-classification approach,Propose a novel patent network-based classification method,RELATED_TO,0.8288408124043225
+Propose hybrid-patent-classification approach,improve efficiency and quality of patent analysis,RELATED_TO,0.6774496033210348
+Propose hybrid-patent-classification approach,Analyze technological trajectories,RELATED_TO,0.5066173949637242
+Propose hybrid-patent-classification approach,Systematic method for patent network analysis,RELATED_TO,0.714546018177233
+finding patterns of convergence,identify variables affecting convergence,RELATED_TO,0.7765334697136728
+finding patterns of convergence,structure technology convergence network,RELATED_TO,0.6403880598493001
+finding patterns of convergence,Systematic method for patent network analysis,RELATED_TO,0.5103394978344086
+identify variables affecting convergence,structure technology convergence network,RELATED_TO,0.6055374567263557
+identify variables affecting convergence,integrate different results,RELATED_TO,0.5413526178561131
+identify variables affecting convergence,analyze patent network characteristics,RELATED_TO,0.5205707448992163
+understand quantum ecosystem,push quantum movements,RELATED_TO,0.5931352545320905
+push quantum movements,Analyze technological trajectories,RELATED_TO,0.51942635536817
+structure technology convergence network,analyze patent network characteristics,RELATED_TO,0.5886878449520756
+structure technology convergence network,Propose a novel patent network-based classification method,RELATED_TO,0.5524832634622199
+structure technology convergence network,Analyze technological trajectories,RELATED_TO,0.5700276728128667
+structure technology convergence network,Systematic method for patent network analysis,RELATED_TO,0.5720670485068032
+structure technology convergence network,explore changes in global innovation networks,RELATED_TO,0.6351334217730756
+analyze patent network characteristics,Propose a novel patent network-based classification method,RELATED_TO,0.8055073389496746
+analyze patent network characteristics,improve efficiency and quality of patent analysis,RELATED_TO,0.7121350155946392
+analyze patent network characteristics,Systematic method for patent network analysis,RELATED_TO,0.872488747878658
+analyze patent network characteristics,explore changes in global innovation networks,RELATED_TO,0.6396524198676468
+Propose a novel patent network-based classification method,improve efficiency and quality of patent analysis,RELATED_TO,0.6672941966236096
+Propose a novel patent network-based classification method,Analyze technological trajectories,RELATED_TO,0.5025162312196945
+Propose a novel patent network-based classification method,Systematic method for patent network analysis,RELATED_TO,0.8588521248767396
+Propose a novel patent network-based classification method,explore changes in global innovation networks,RELATED_TO,0.5852189441377615
+improve efficiency and quality of patent analysis,Systematic method for patent network analysis,RELATED_TO,0.7395194294025635
+Analyze technological trajectories,Systematic method for patent network analysis,RELATED_TO,0.5198652995273784
+Analyze technological trajectories,explore changes in global innovation networks,RELATED_TO,0.5302952862240521
+Systematic method for patent network analysis,explore changes in global innovation networks,RELATED_TO,0.5905932148844742
+convergence between manufacturing technology and Industry 4.0 foundation technologies,previous work on innovation strategy,RELATED_TO,0.5326980628453578
+convergence between manufacturing technology and Industry 4.0 foundation technologies,technological convergence in robotics,RELATED_TO,0.6779840871159949
+convergence between manufacturing technology and Industry 4.0 foundation technologies,quantum technologies transformative,RELATED_TO,0.519152783499111
+convergence between manufacturing technology and Industry 4.0 foundation technologies,technology convergence,RELATED_TO,0.7523946193761466
+convergence between manufacturing technology and Industry 4.0 foundation technologies,Classification of patents is essential for patent management,RELATED_TO,0.5102004693405453
+convergence between manufacturing technology and Industry 4.0 foundation technologies,patent network analysis is a useful tool for technology management,RELATED_TO,0.5149664792353251
+convergence between manufacturing technology and Industry 4.0 foundation technologies,Rise of cloud computing technology,RELATED_TO,0.5571114900124423
+previous work on innovation strategy,technological convergence in robotics,RELATED_TO,0.5228332714041062
+previous work on innovation strategy,network analysis of patents,RELATED_TO,0.5005883530202542
+previous work on innovation strategy,technology convergence,RELATED_TO,0.5372896556590592
+previous work on innovation strategy,previous work on patent network,RELATED_TO,0.613184306617659
+previous work on innovation strategy,Classification of patents is essential for patent management,RELATED_TO,0.5199085523029662
+previous work on innovation strategy,patent network analysis is a useful tool for technology management,RELATED_TO,0.5569692937734073
+previous work on innovation strategy,traditional methods of patent analysis exist,RELATED_TO,0.5029807586826709
+previous work on innovation strategy,previous work,RELATED_TO,0.6255568104861221
+Effective patent management essential,Patent classification critical,RELATED_TO,0.5187782137423914
+Effective patent management essential,network analysis of patents,RELATED_TO,0.6277005183976538
+Effective patent management essential,large database of patent,RELATED_TO,0.6519601147049535
+Effective patent management essential,previous work on patent network,RELATED_TO,0.6317940446057061
+Effective patent management essential,Patent management is essential for competitive advantage,RELATED_TO,0.6911526687276387
+Effective patent management essential,Classification of patents is essential for patent management,RELATED_TO,0.9212036889509171
+Effective patent management essential,patent network analysis is a useful tool for technology management,RELATED_TO,0.6806953477590124
+Effective patent management essential,traditional methods of patent analysis exist,RELATED_TO,0.6509773586335121
+Effective patent management essential,global patent cooperation data,RELATED_TO,0.5962932100174669
+Patent classification critical,Conventional classification methods exist,RELATED_TO,0.643024948652052
+Patent classification critical,quantum ecosystem critical,RELATED_TO,0.627328870768925
+Patent classification critical,Patent management is essential for competitive advantage,RELATED_TO,0.5835463351865395
+Patent classification critical,current method has limitations,RELATED_TO,0.5126405265158125
+Patent classification critical,Patent analysis of cloud computing,RELATED_TO,0.5034369561798869
+Patent classification critical,Few attempts made,RELATED_TO,0.558447800088666
+Conventional classification methods exist,traditional methods of patent analysis exist,RELATED_TO,0.5818243855425506
+Conventional classification methods exist,current method has limitations,RELATED_TO,0.6170989345609447
+Conventional classification methods exist,Patent citations networks,RELATED_TO,0.5239385388526192
+Conventional classification methods exist,Patent analysis of cloud computing,RELATED_TO,0.5019917522761908
+Conventional classification methods exist,Few attempts made,RELATED_TO,0.592528961295032
+Conventional classification methods exist,Rise of cloud computing technology,RELATED_TO,0.5165508399018076
+technological convergence in robotics,quantum technologies transformative,RELATED_TO,0.5184772738981586
+technological convergence in robotics,technology convergence,RELATED_TO,0.8519966559490074
+technological convergence in robotics,patent network analysis is a useful tool for technology management,RELATED_TO,0.5176301145172291
+technological convergence in robotics,global patent cooperation data,RELATED_TO,0.5098646620814069
+network analysis of patents,large database of patent,RELATED_TO,0.7439465498838148
+network analysis of patents,technology convergence,RELATED_TO,0.5034226459162436
+network analysis of patents,previous work on patent network,RELATED_TO,0.835966087126026
+network analysis of patents,Classification of patents is essential for patent management,RELATED_TO,0.7061847748454713
+network analysis of patents,patent network analysis is a useful tool for technology management,RELATED_TO,0.8982634451688687
+network analysis of patents,traditional methods of patent analysis exist,RELATED_TO,0.7901218372687302
+network analysis of patents,Patent citations networks,RELATED_TO,0.5943866170208254
+network analysis of patents,Patent analysis of cloud computing,RELATED_TO,0.5248130557741699
+network analysis of patents,global patent cooperation data,RELATED_TO,0.6873169304060794
+quantum technologies transformative,quantum ecosystem critical,RELATED_TO,0.580073515664979
+quantum technologies transformative,technology convergence,RELATED_TO,0.5589143011686324
+quantum technologies transformative,Rise of cloud computing technology,RELATED_TO,0.5430446295695119
+articles lack interconnected relations,previous work on patent network,RELATED_TO,0.514386183532603
+articles lack interconnected relations,patent network analysis is a useful tool for technology management,RELATED_TO,0.500364443509644
+articles lack interconnected relations,Patent citations networks,RELATED_TO,0.5142088366236244
+large database of patent,previous work on patent network,RELATED_TO,0.7088956871969438
+large database of patent,Classification of patents is essential for patent management,RELATED_TO,0.7252081220438626
+large database of patent,patent network analysis is a useful tool for technology management,RELATED_TO,0.7085707892660535
+large database of patent,traditional methods of patent analysis exist,RELATED_TO,0.7053493103919917
+large database of patent,global patent cooperation data,RELATED_TO,0.7186213020035361
+technology convergence,patent network analysis is a useful tool for technology management,RELATED_TO,0.5581992187355046
+technology convergence,current method has limitations,RELATED_TO,0.5158603746066339
+technology convergence,Rise of cloud computing technology,RELATED_TO,0.5741275847970793
+technology convergence,global patent cooperation data,RELATED_TO,0.5285300417837684
+technology convergence,1999 to 2020,RELATED_TO,0.5166634893118084
+previous work on patent network,Classification of patents is essential for patent management,RELATED_TO,0.6719817689899967
+previous work on patent network,patent network analysis is a useful tool for technology management,RELATED_TO,0.7993177621458457
+previous work on patent network,traditional methods of patent analysis exist,RELATED_TO,0.6767676004601586
+previous work on patent network,Patent citations networks,RELATED_TO,0.6183924309312054
+previous work on patent network,global patent cooperation data,RELATED_TO,0.7030353130873128
+previous work on patent network,previous work,RELATED_TO,0.5994681082390039
+Patent management is essential for competitive advantage,Classification of patents is essential for patent management,RELATED_TO,0.6754864216577297
+Patent management is essential for competitive advantage,patent network analysis is a useful tool for technology management,RELATED_TO,0.5502158214681587
+Classification of patents is essential for patent management,patent network analysis is a useful tool for technology management,RELATED_TO,0.7284330072236183
+Classification of patents is essential for patent management,traditional methods of patent analysis exist,RELATED_TO,0.7109517250896156
+Classification of patents is essential for patent management,global patent cooperation data,RELATED_TO,0.6156911484766399
+patent network analysis is a useful tool for technology management,traditional methods of patent analysis exist,RELATED_TO,0.7760013131103252
+patent network analysis is a useful tool for technology management,Patent citations networks,RELATED_TO,0.5749888356993467
+patent network analysis is a useful tool for technology management,Patent analysis of cloud computing,RELATED_TO,0.5680851114115866
+patent network analysis is a useful tool for technology management,Rise of cloud computing technology,RELATED_TO,0.5196978331927422
+patent network analysis is a useful tool for technology management,global patent cooperation data,RELATED_TO,0.6560326516634466
+traditional methods of patent analysis exist,current method has limitations,RELATED_TO,0.5801713366760205
+traditional methods of patent analysis exist,global patent cooperation data,RELATED_TO,0.6096563997926686
+current method has limitations,1999 to 2020,RELATED_TO,0.5549942761169745
+Patent citations networks,Patent analysis of cloud computing,RELATED_TO,0.5110650828388684
+Patent analysis of cloud computing,Rise of cloud computing technology,RELATED_TO,0.8313113620482199
+patent network analysis,empirical analysis on top 30 firms,RELATED_TO,0.5431744163336462
+patent network analysis,Hybrid approach combining novel patent-network-based method,RELATED_TO,0.7523963478969236
+patent network analysis,Reachable nodes analysis,RELATED_TO,0.6585557180879456
+patent network analysis,patent co-class analysis,RELATED_TO,0.7184721788935494
+patent network analysis,patent citation analysis,RELATED_TO,0.7820999884570801
+patent network analysis,association rule mining,RELATED_TO,0.5393255718500115
+patent network analysis,brokerage network analysis,RELATED_TO,0.7685253013328024
+patent network analysis,Construct patent network with various types of nodes,RELATED_TO,0.808591474490207
+patent network analysis,Analyze reachable nodes in patent ontology network,RELATED_TO,0.6966473881393617
+patent network analysis,automated procedure for searching patent documents,RELATED_TO,0.6309173859890097
+patent network analysis,extracting patent keywords,RELATED_TO,0.6555687937740786
+patent network analysis,determining weight of each patent keyword,RELATED_TO,0.6287897264598816
+patent network analysis,Bibliometric and network analyses,RELATED_TO,0.7462456439380051
+patent network analysis,Two-stage patent retrieval method,RELATED_TO,0.6223781280006148
+patent network analysis,Gray relational-based cluster analysis,RELATED_TO,0.5507657386564089
+patent network analysis,Visual networks and technology centrality indexes,RELATED_TO,0.6108672976846318
+patent network analysis,social network analysis,RELATED_TO,0.7096808685092629
+patent network analysis,global innovation networks,RELATED_TO,0.6370619128444537
+three centrality indices,centrality analysis,RELATED_TO,0.8124577435414675
+three centrality indices,Visual networks and technology centrality indexes,RELATED_TO,0.7882348922478616
+panel regression,factor identification,RELATED_TO,0.5251332956528539
+empirical analysis on top 30 firms,Reachable nodes analysis,RELATED_TO,0.5122726022583762
+empirical analysis on top 30 firms,patent co-class analysis,RELATED_TO,0.5035434722500867
+empirical analysis on top 30 firms,patent citation analysis,RELATED_TO,0.5062920039959186
+empirical analysis on top 30 firms,brokerage network analysis,RELATED_TO,0.5846751085456107
+empirical analysis on top 30 firms,Bibliometric and network analyses,RELATED_TO,0.5571915661075064
+empirical analysis on top 30 firms,Gray relational-based cluster analysis,RELATED_TO,0.5110983165866554
+empirical analysis on top 30 firms,social network analysis,RELATED_TO,0.5158053482459338
+empirical analysis on top 30 firms,factor identification,RELATED_TO,0.5007625329384495
+Hybrid approach combining novel patent-network-based method,Three conventional methods,RELATED_TO,0.5877604617932252
+Hybrid approach combining novel patent-network-based method,Content-based classification,RELATED_TO,0.5202247225520963
+Hybrid approach combining novel patent-network-based method,Citation-based classification,RELATED_TO,0.5202247225520963
+Hybrid approach combining novel patent-network-based method,Metadata-based classification,RELATED_TO,0.5202247225520963
+Hybrid approach combining novel patent-network-based method,innovation ecosystem theory,RELATED_TO,0.505542214788741
+Hybrid approach combining novel patent-network-based method,patent co-class analysis,RELATED_TO,0.5825523094334542
+Hybrid approach combining novel patent-network-based method,patent citation analysis,RELATED_TO,0.5791579770181055
+Hybrid approach combining novel patent-network-based method,brokerage network analysis,RELATED_TO,0.5341489062552162
+Hybrid approach combining novel patent-network-based method,Construct patent network with various types of nodes,RELATED_TO,0.779999004750664
+Hybrid approach combining novel patent-network-based method,Analyze reachable nodes in patent ontology network,RELATED_TO,0.6804942646115164
+Hybrid approach combining novel patent-network-based method,Compare with conventional methods,RELATED_TO,0.5923022224005461
+Hybrid approach combining novel patent-network-based method,artificial intelligence techniques,RELATED_TO,0.509793000003454
+Hybrid approach combining novel patent-network-based method,automated procedure for searching patent documents,RELATED_TO,0.5707690419859464
+Hybrid approach combining novel patent-network-based method,extracting patent keywords,RELATED_TO,0.6240726793045518
+Hybrid approach combining novel patent-network-based method,determining weight of each patent keyword,RELATED_TO,0.6011750025057638
+Hybrid approach combining novel patent-network-based method,Bibliometric and network analyses,RELATED_TO,0.5537118430266764
+Hybrid approach combining novel patent-network-based method,Two-stage patent retrieval method,RELATED_TO,0.6859411936889284
+Hybrid approach combining novel patent-network-based method,Visual networks and technology centrality indexes,RELATED_TO,0.5349316923439288
+Hybrid approach combining novel patent-network-based method,global innovation networks,RELATED_TO,0.584551532505156
+Three conventional methods,Content-based classification,RELATED_TO,0.5334837099157077
+Three conventional methods,Citation-based classification,RELATED_TO,0.5334837099157077
+Three conventional methods,Metadata-based classification,RELATED_TO,0.5334837099157077
+Three conventional methods,Relevance calculation,RELATED_TO,0.5752323938457715
+Three conventional methods,QAP,RELATED_TO,0.5268746152469124
+Three conventional methods,Compare with conventional methods,RELATED_TO,0.9788402441056352
+Three conventional methods,artificial intelligence techniques,RELATED_TO,0.5607708135132462
+Three conventional methods,Identify technological trajectories,RELATED_TO,0.5028493941568749
+Content-based classification,Citation-based classification,RELATED_TO,1.0000000000000009
+Content-based classification,Metadata-based classification,RELATED_TO,1.0000000000000009
+Content-based classification,Modified k-nearest neighbor classifier,RELATED_TO,0.6507600057552286
+Content-based classification,Reachable nodes analysis,RELATED_TO,0.5538672043716529
+Content-based classification,Relevance calculation,RELATED_TO,0.637404983162434
+Content-based classification,QAP,RELATED_TO,0.7064204672951306
+Content-based classification,patent co-class analysis,RELATED_TO,0.5113856196926172
+Content-based classification,Use modified k-nearest neighbor classifier,RELATED_TO,0.6035187862353674
+Content-based classification,Evaluate performance on USPTO dataset,RELATED_TO,0.6019137091810223
+Content-based classification,Compare with conventional methods,RELATED_TO,0.5571408624842256
+Content-based classification,artificial intelligence techniques,RELATED_TO,0.5139198529257555
+Content-based classification,Identify technological trajectories,RELATED_TO,0.5000839925218439
+Content-based classification,Legal enforcement indicators,RELATED_TO,0.5312120059676902
+Content-based classification,Bibliometric and network analyses,RELATED_TO,0.5732837540940597
+Content-based classification,Two-stage patent retrieval method,RELATED_TO,0.5221609777871314
+Content-based classification,Gray relational-based cluster analysis,RELATED_TO,0.5495579439628079
+Citation-based classification,Metadata-based classification,RELATED_TO,1.0000000000000009
+Citation-based classification,Modified k-nearest neighbor classifier,RELATED_TO,0.6507600057552286
+Citation-based classification,Reachable nodes analysis,RELATED_TO,0.5538672043716529
+Citation-based classification,Relevance calculation,RELATED_TO,0.637404983162434
+Citation-based classification,QAP,RELATED_TO,0.7064204672951306
+Citation-based classification,patent co-class analysis,RELATED_TO,0.5113856196926172
+Citation-based classification,Use modified k-nearest neighbor classifier,RELATED_TO,0.6035187862353674
+Citation-based classification,Evaluate performance on USPTO dataset,RELATED_TO,0.6019137091810223
+Citation-based classification,Compare with conventional methods,RELATED_TO,0.5571408624842256
+Citation-based classification,artificial intelligence techniques,RELATED_TO,0.5139198529257555
+Citation-based classification,Identify technological trajectories,RELATED_TO,0.5000839925218439
+Citation-based classification,Legal enforcement indicators,RELATED_TO,0.5312120059676902
+Citation-based classification,Bibliometric and network analyses,RELATED_TO,0.5732837540940597
+Citation-based classification,Two-stage patent retrieval method,RELATED_TO,0.5221609777871314
+Citation-based classification,Gray relational-based cluster analysis,RELATED_TO,0.5495579439628079
+Metadata-based classification,Modified k-nearest neighbor classifier,RELATED_TO,0.6507600057552286
+Metadata-based classification,Reachable nodes analysis,RELATED_TO,0.5538672043716529
+Metadata-based classification,Relevance calculation,RELATED_TO,0.637404983162434
+Metadata-based classification,QAP,RELATED_TO,0.7064204672951306
+Metadata-based classification,patent co-class analysis,RELATED_TO,0.5113856196926172
+Metadata-based classification,Use modified k-nearest neighbor classifier,RELATED_TO,0.6035187862353674
+Metadata-based classification,Evaluate performance on USPTO dataset,RELATED_TO,0.6019137091810223
+Metadata-based classification,Compare with conventional methods,RELATED_TO,0.5571408624842256
+Metadata-based classification,artificial intelligence techniques,RELATED_TO,0.5139198529257555
+Metadata-based classification,Identify technological trajectories,RELATED_TO,0.5000839925218439
+Metadata-based classification,Legal enforcement indicators,RELATED_TO,0.5312120059676902
+Metadata-based classification,Bibliometric and network analyses,RELATED_TO,0.5732837540940597
+Metadata-based classification,Two-stage patent retrieval method,RELATED_TO,0.5221609777871314
+Metadata-based classification,Gray relational-based cluster analysis,RELATED_TO,0.5495579439628079
+Modified k-nearest neighbor classifier,QAP,RELATED_TO,0.511055030900632
+Modified k-nearest neighbor classifier,patent co-class analysis,RELATED_TO,0.5125340076949316
+Modified k-nearest neighbor classifier,Construct patent network with various types of nodes,RELATED_TO,0.521384247165456
+Modified k-nearest neighbor classifier,Analyze reachable nodes in patent ontology network,RELATED_TO,0.5129859473335302
+Modified k-nearest neighbor classifier,Use modified k-nearest neighbor classifier,RELATED_TO,0.9356510788357534
+Modified k-nearest neighbor classifier,Gray relational-based cluster analysis,RELATED_TO,0.5166796219459546
+Reachable nodes analysis,Relevance calculation,RELATED_TO,0.5518171753891884
+Reachable nodes analysis,QAP,RELATED_TO,0.5128492101504323
+Reachable nodes analysis,patent co-class analysis,RELATED_TO,0.5228318097316949
+Reachable nodes analysis,patent citation analysis,RELATED_TO,0.5438037793216459
+Reachable nodes analysis,centrality analysis,RELATED_TO,0.5600764087293493
+Reachable nodes analysis,brokerage network analysis,RELATED_TO,0.642524839060438
+Reachable nodes analysis,Construct patent network with various types of nodes,RELATED_TO,0.6447527095086988
+Reachable nodes analysis,Analyze reachable nodes in patent ontology network,RELATED_TO,0.5912544808468296
+Reachable nodes analysis,Evaluate performance on USPTO dataset,RELATED_TO,0.5370581122051833
+Reachable nodes analysis,Legal enforcement indicators,RELATED_TO,0.5042165583210622
+Reachable nodes analysis,Bibliometric and network analyses,RELATED_TO,0.7990029680180155
+Reachable nodes analysis,Gray relational-based cluster analysis,RELATED_TO,0.7045861769257424
+Reachable nodes analysis,Visual networks and technology centrality indexes,RELATED_TO,0.5738385248259168
+Reachable nodes analysis,social network analysis,RELATED_TO,0.6802400443577509
+Relevance calculation,QAP,RELATED_TO,0.772952202554649
+Relevance calculation,Evaluate performance on USPTO dataset,RELATED_TO,0.5780242916480147
+Relevance calculation,Compare with conventional methods,RELATED_TO,0.5843097064192402
+Relevance calculation,Identify technological trajectories,RELATED_TO,0.5314631712882327
+Relevance calculation,Legal enforcement indicators,RELATED_TO,0.5253789913693234
+Relevance calculation,Bibliometric and network analyses,RELATED_TO,0.5980277913809304
+QAP,Evaluate performance on USPTO dataset,RELATED_TO,0.5837681140135761
+QAP,Compare with conventional methods,RELATED_TO,0.544739176469588
+QAP,Identify technological trajectories,RELATED_TO,0.5524918240169353
+QAP,Legal enforcement indicators,RELATED_TO,0.5504444676952065
+QAP,Bibliometric and network analyses,RELATED_TO,0.5757306119932906
+innovation ecosystem theory,social-technical system theory,RELATED_TO,0.6227739949208725
+innovation ecosystem theory,global innovation networks,RELATED_TO,0.6103608769698368
+social-technical system theory,patent co-class analysis,RELATED_TO,0.5040059424909212
+social-technical system theory,Identify technological trajectories,RELATED_TO,0.5674024673156478
+social-technical system theory,Visual networks and technology centrality indexes,RELATED_TO,0.5102211096574666
+social-technical system theory,social network analysis,RELATED_TO,0.5421165445899514
+patent co-class analysis,patent citation analysis,RELATED_TO,0.7306610632829149
+patent co-class analysis,centrality analysis,RELATED_TO,0.5092904046143724
+patent co-class analysis,association rule mining,RELATED_TO,0.5066218647809765
+patent co-class analysis,brokerage network analysis,RELATED_TO,0.5395541295673518
+patent co-class analysis,Construct patent network with various types of nodes,RELATED_TO,0.5878428435193401
+patent co-class analysis,Analyze reachable nodes in patent ontology network,RELATED_TO,0.5434435289982933
+patent co-class analysis,automated procedure for searching patent documents,RELATED_TO,0.5551161534796026
+patent co-class analysis,extracting patent keywords,RELATED_TO,0.605568331254738
+patent co-class analysis,determining weight of each patent keyword,RELATED_TO,0.6095358305085151
+patent co-class analysis,Bibliometric and network analyses,RELATED_TO,0.5092090380616393
+patent co-class analysis,Two-stage patent retrieval method,RELATED_TO,0.5732675510229995
+patent co-class analysis,Gray relational-based cluster analysis,RELATED_TO,0.5242004888415268
+patent co-class analysis,social network analysis,RELATED_TO,0.5224863275569563
+patent citation analysis,brokerage network analysis,RELATED_TO,0.5277114600795525
+patent citation analysis,Construct patent network with various types of nodes,RELATED_TO,0.6050411657667433
+patent citation analysis,Analyze reachable nodes in patent ontology network,RELATED_TO,0.5573362529253107
+patent citation analysis,automated procedure for searching patent documents,RELATED_TO,0.6666168153543546
+patent citation analysis,extracting patent keywords,RELATED_TO,0.7227759433010605
+patent citation analysis,determining weight of each patent keyword,RELATED_TO,0.6802457742423094
+patent citation analysis,Bibliometric and network analyses,RELATED_TO,0.5399281762520016
+patent citation analysis,Two-stage patent retrieval method,RELATED_TO,0.6246582752794891
+patent citation analysis,social network analysis,RELATED_TO,0.5180085889811221
+patent citation analysis,factor identification,RELATED_TO,0.5070073390517487
+centrality analysis,brokerage network analysis,RELATED_TO,0.5119356839957472
+centrality analysis,Bibliometric and network analyses,RELATED_TO,0.5212711890033502
+centrality analysis,Gray relational-based cluster analysis,RELATED_TO,0.5389702524734534
+centrality analysis,Visual networks and technology centrality indexes,RELATED_TO,0.7284066946325891
+centrality analysis,social network analysis,RELATED_TO,0.5033683439694646
+association rule mining,brokerage network analysis,RELATED_TO,0.5331245759478737
+association rule mining,Construct patent network with various types of nodes,RELATED_TO,0.5022568241996173
+association rule mining,Bibliometric and network analyses,RELATED_TO,0.5251399950625784
+association rule mining,Gray relational-based cluster analysis,RELATED_TO,0.5645116424841847
+association rule mining,social network analysis,RELATED_TO,0.5086189006446623
+brokerage network analysis,Construct patent network with various types of nodes,RELATED_TO,0.5860486606148301
+brokerage network analysis,Analyze reachable nodes in patent ontology network,RELATED_TO,0.5282063618548078
+brokerage network analysis,Bibliometric and network analyses,RELATED_TO,0.7683031685480973
+brokerage network analysis,Gray relational-based cluster analysis,RELATED_TO,0.5999586423158697
+brokerage network analysis,Visual networks and technology centrality indexes,RELATED_TO,0.5915176952987787
+brokerage network analysis,social network analysis,RELATED_TO,0.7326262216398571
+brokerage network analysis,global innovation networks,RELATED_TO,0.5289976055642899
+brokerage network analysis,factor identification,RELATED_TO,0.5106720867267974
+Construct patent network with various types of nodes,Analyze reachable nodes in patent ontology network,RELATED_TO,0.8228182081776334
+Construct patent network with various types of nodes,automated procedure for searching patent documents,RELATED_TO,0.6085047593383961
+Construct patent network with various types of nodes,extracting patent keywords,RELATED_TO,0.6282035950103482
+Construct patent network with various types of nodes,determining weight of each patent keyword,RELATED_TO,0.6171190977752878
+Construct patent network with various types of nodes,Identify technological trajectories,RELATED_TO,0.5609819396119412
+Construct patent network with various types of nodes,Study scale-free networks,RELATED_TO,0.5687526588738168
+Construct patent network with various types of nodes,Bibliometric and network analyses,RELATED_TO,0.6114894099309847
+Construct patent network with various types of nodes,Two-stage patent retrieval method,RELATED_TO,0.655560773924448
+Construct patent network with various types of nodes,Visual networks and technology centrality indexes,RELATED_TO,0.632200160077931
+Construct patent network with various types of nodes,social network analysis,RELATED_TO,0.5146789146337093
+Construct patent network with various types of nodes,global innovation networks,RELATED_TO,0.6714114185624245
+Analyze reachable nodes in patent ontology network,automated procedure for searching patent documents,RELATED_TO,0.6042519681713281
+Analyze reachable nodes in patent ontology network,extracting patent keywords,RELATED_TO,0.6249401354786328
+Analyze reachable nodes in patent ontology network,determining weight of each patent keyword,RELATED_TO,0.6031817804713632
+Analyze reachable nodes in patent ontology network,Bibliometric and network analyses,RELATED_TO,0.5030021727843292
+Analyze reachable nodes in patent ontology network,Two-stage patent retrieval method,RELATED_TO,0.6442925906859491
+Analyze reachable nodes in patent ontology network,Visual networks and technology centrality indexes,RELATED_TO,0.5616421338083222
+Analyze reachable nodes in patent ontology network,global innovation networks,RELATED_TO,0.5412930962754766
+Evaluate performance on USPTO dataset,Legal enforcement indicators,RELATED_TO,0.5396719486143029
+Evaluate performance on USPTO dataset,Bibliometric and network analyses,RELATED_TO,0.5411998977844472
+Evaluate performance on USPTO dataset,Gray relational-based cluster analysis,RELATED_TO,0.5083109668719298
+Compare with conventional methods,artificial intelligence techniques,RELATED_TO,0.545281573043793
+artificial intelligence techniques,generate sophisticated visualization,RELATED_TO,0.5029597265065829
+artificial intelligence techniques,Identify technological trajectories,RELATED_TO,0.5221542873820334
+automated procedure for searching patent documents,extracting patent keywords,RELATED_TO,0.71013012293798
+automated procedure for searching patent documents,determining weight of each patent keyword,RELATED_TO,0.6329650671587508
+automated procedure for searching patent documents,Two-stage patent retrieval method,RELATED_TO,0.7761888655050942
+extracting patent keywords,determining weight of each patent keyword,RELATED_TO,0.8109935354673399
+extracting patent keywords,Two-stage patent retrieval method,RELATED_TO,0.7193081809436438
+determining weight of each patent keyword,Two-stage patent retrieval method,RELATED_TO,0.6588116911401799
+Identify technological trajectories,Bibliometric and network analyses,RELATED_TO,0.5038940088713494
+Identify technological trajectories,Visual networks and technology centrality indexes,RELATED_TO,0.5402568135948723
+Identify technological trajectories,global innovation networks,RELATED_TO,0.5045082430859674
+Study scale-free networks,Bibliometric and network analyses,RELATED_TO,0.563128504663665
+Study scale-free networks,Visual networks and technology centrality indexes,RELATED_TO,0.5220549456492611
+Study scale-free networks,global innovation networks,RELATED_TO,0.534648027469338
+Legal enforcement indicators,Bibliometric and network analyses,RELATED_TO,0.5248302260170713
+Bibliometric and network analyses,Gray relational-based cluster analysis,RELATED_TO,0.6575912275089392
+Bibliometric and network analyses,Visual networks and technology centrality indexes,RELATED_TO,0.6471696794837678
+Bibliometric and network analyses,social network analysis,RELATED_TO,0.8161163783048666
+Bibliometric and network analyses,global innovation networks,RELATED_TO,0.5506367987711459
+Bibliometric and network analyses,factor identification,RELATED_TO,0.5037828248434874
+Gray relational-based cluster analysis,Visual networks and technology centrality indexes,RELATED_TO,0.5567779668360922
+Gray relational-based cluster analysis,social network analysis,RELATED_TO,0.6199318311609636
+Visual networks and technology centrality indexes,social network analysis,RELATED_TO,0.5469214825265211
+Visual networks and technology centrality indexes,global innovation networks,RELATED_TO,0.5532980505542509
+social network analysis,global innovation networks,RELATED_TO,0.5441662910536726
+TC degree positively influences overall innovation,TC degree negatively influences convergent innovation,RELATED_TO,0.850413493771769
+TC degree positively influences overall innovation,convergent innovation is ratio of TC patents to total patents,RELATED_TO,0.6603859288063028
+TC degree positively influences overall innovation,Hybrid approach yields more accurate class predictions,RELATED_TO,0.5398644246372034
+TC degree positively influences overall innovation,Patent-network-based approach improves accuracy,RELATED_TO,0.5204410583110908
+TC degree positively influences overall innovation,patent network ecology related to convergence,RELATED_TO,0.5405235830167203
+TC degree positively influences overall innovation,technologies with potential to converge,RELATED_TO,0.5650727577024365
+TC degree positively influences overall innovation,detailed technology in core patent class,RELATED_TO,0.5627272666446266
+TC degree positively influences overall innovation,Proposed approach outperforms conventional approaches,RELATED_TO,0.5182621797025055
+TC degree positively influences overall innovation,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.5357986390730083
+TC degree positively influences overall innovation,verified utility with CNT-BLU patents,RELATED_TO,0.5500461910935422
+TC degree positively influences overall innovation,Identify patents belonging to cloud computing,RELATED_TO,0.5455744000485175
+TC degree positively influences overall innovation,Reveal overall patent structure,RELATED_TO,0.5812376278296691
+TC degree positively influences overall innovation,Identify key technologies,RELATED_TO,0.583534995338552
+TC degree positively influences overall innovation,Provide valuable reference for enterprises,RELATED_TO,0.5297981655052983
+TC degree positively influences overall innovation,China's position increasing,RELATED_TO,0.5254923751641033
+TC degree negatively influences convergent innovation,TC betweenness has opposite effect,RELATED_TO,0.525110430138225
+TC degree negatively influences convergent innovation,convergent innovation is ratio of TC patents to total patents,RELATED_TO,0.7297298714218416
+TC degree negatively influences convergent innovation,Hybrid approach yields more accurate class predictions,RELATED_TO,0.5371591025391887
+TC degree negatively influences convergent innovation,Patent-network-based approach improves accuracy,RELATED_TO,0.5323744161423657
+TC degree negatively influences convergent innovation,patent network ecology related to convergence,RELATED_TO,0.6709871468249543
+TC degree negatively influences convergent innovation,technologies with potential to converge,RELATED_TO,0.6537983821478276
+TC degree negatively influences convergent innovation,convergence-based R&D policies,RELATED_TO,0.6131770233600656
+TC degree negatively influences convergent innovation,detailed technology in core patent class,RELATED_TO,0.5581983989885224
+TC degree negatively influences convergent innovation,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.5196608206811647
+TC degree negatively influences convergent innovation,Reveal overall patent structure,RELATED_TO,0.5231983774318171
+TC degree negatively influences convergent innovation,Identify key technologies,RELATED_TO,0.5164296371635825
+TC betweenness has opposite effect,Proposed approach outperforms conventional approaches,RELATED_TO,0.5074662438066224
+TC betweenness has opposite effect,Demonstrate superior performance on test dataset,RELATED_TO,0.5025980096063328
+TC betweenness has opposite effect,China's position increasing,RELATED_TO,0.5375201439389293
+convergent innovation is ratio of TC patents to total patents,patent network ecology related to convergence,RELATED_TO,0.637698262313265
+convergent innovation is ratio of TC patents to total patents,technologies with potential to converge,RELATED_TO,0.643574869748728
+convergent innovation is ratio of TC patents to total patents,convergence-based R&D policies,RELATED_TO,0.5687388541176985
+convergent innovation is ratio of TC patents to total patents,detailed technology in core patent class,RELATED_TO,0.6552683920816768
+convergent innovation is ratio of TC patents to total patents,Proposed approach outperforms conventional approaches,RELATED_TO,0.517539784476875
+convergent innovation is ratio of TC patents to total patents,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.6199275982148196
+convergent innovation is ratio of TC patents to total patents,verified utility with CNT-BLU patents,RELATED_TO,0.6329897440498056
+convergent innovation is ratio of TC patents to total patents,Identify patents belonging to cloud computing,RELATED_TO,0.6070494335992452
+convergent innovation is ratio of TC patents to total patents,Reveal overall patent structure,RELATED_TO,0.6850937725541144
+convergent innovation is ratio of TC patents to total patents,Identify key technologies,RELATED_TO,0.5548802415420313
+convergent innovation is ratio of TC patents to total patents,Provide valuable reference for enterprises,RELATED_TO,0.5240392171751326
+Hybrid approach yields more accurate class predictions,Outperforms conventional methods,RELATED_TO,0.5201531355135707
+Hybrid approach yields more accurate class predictions,Patent-network-based approach improves accuracy,RELATED_TO,0.6132771858069467
+Hybrid approach yields more accurate class predictions,detailed technology in core patent class,RELATED_TO,0.5090273591600436
+Hybrid approach yields more accurate class predictions,Proposed approach outperforms conventional approaches,RELATED_TO,0.6791515326520696
+Hybrid approach yields more accurate class predictions,Demonstrate superior performance on test dataset,RELATED_TO,0.5851790403517793
+Hybrid approach yields more accurate class predictions,Deterring potential entrants,RELATED_TO,0.5267893012257941
+Outperforms conventional methods,Patent-network-based approach improves accuracy,RELATED_TO,0.5417738463152424
+Outperforms conventional methods,Proposed approach outperforms conventional approaches,RELATED_TO,0.7629336557276496
+Outperforms conventional methods,Identify key technologies,RELATED_TO,0.5331852049595456
+Patent-network-based approach improves accuracy,patent network ecology related to convergence,RELATED_TO,0.5538846582111996
+Patent-network-based approach improves accuracy,technologies with potential to converge,RELATED_TO,0.507529459322021
+Patent-network-based approach improves accuracy,Proposed approach outperforms conventional approaches,RELATED_TO,0.693004557039423
+Patent-network-based approach improves accuracy,Demonstrate superior performance on test dataset,RELATED_TO,0.5561231035997892
+Patent-network-based approach improves accuracy,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.5884464106693578
+Patent-network-based approach improves accuracy,method enables visual network with great precision,RELATED_TO,0.68629765828523
+Patent-network-based approach improves accuracy,Provide valuable reference for enterprises,RELATED_TO,0.520680273152379
+Patent-network-based approach improves accuracy,network accessibility improved,RELATED_TO,0.6839216244131
+Patent-network-based approach improves accuracy,scale-free network characteristics,RELATED_TO,0.5636554937292955
+patent network ecology related to convergence,technologies with potential to converge,RELATED_TO,0.6895974195781368
+patent network ecology related to convergence,convergence-based R&D policies,RELATED_TO,0.6493600336761585
+patent network ecology related to convergence,detailed technology in core patent class,RELATED_TO,0.5659136128875127
+patent network ecology related to convergence,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.6927160715013903
+patent network ecology related to convergence,method enables visual network with great precision,RELATED_TO,0.5286606926820203
+patent network ecology related to convergence,verified utility with CNT-BLU patents,RELATED_TO,0.5126997236144
+patent network ecology related to convergence,Identify patents belonging to cloud computing,RELATED_TO,0.5674033965580864
+patent network ecology related to convergence,Reveal overall patent structure,RELATED_TO,0.5654540387270524
+patent network ecology related to convergence,network accessibility improved,RELATED_TO,0.526547955838148
+technologies with potential to converge,convergence-based R&D policies,RELATED_TO,0.6353045085029704
+technologies with potential to converge,detailed technology in core patent class,RELATED_TO,0.5925370874809137
+technologies with potential to converge,implications for stakeholders,RELATED_TO,0.5010142104987831
+technologies with potential to converge,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.523028974914541
+technologies with potential to converge,verified utility with CNT-BLU patents,RELATED_TO,0.5042249941331005
+technologies with potential to converge,Identify patents belonging to cloud computing,RELATED_TO,0.5012830768333774
+technologies with potential to converge,Identify key technologies,RELATED_TO,0.6294292235305854
+technologies with potential to converge,network accessibility improved,RELATED_TO,0.5188776521290677
+convergence-based R&D policies,Proposed approach outperforms conventional approaches,RELATED_TO,0.5068374664938438
+core safety fields compared,medical safety,RELATED_TO,0.6292417919096025
+core safety fields compared,working safety,RELATED_TO,0.6459955305125549
+core safety fields compared,vehicle safety,RELATED_TO,0.6316798277545131
+core safety fields compared,detailed technology in core patent class,RELATED_TO,0.5096499759797065
+medical safety,working safety,RELATED_TO,0.7578647395004575
+medical safety,vehicle safety,RELATED_TO,0.7400203144448678
+working safety,vehicle safety,RELATED_TO,0.7585235125857778
+detailed technology in core patent class,proposes a novel method called intelligent patent network analysis,RELATED_TO,0.6046362729784679
+detailed technology in core patent class,verified utility with CNT-BLU patents,RELATED_TO,0.6303324538524486
+detailed technology in core patent class,Identify patents belonging to cloud computing,RELATED_TO,0.6468366908455738
+detailed technology in core patent class,Reveal overall patent structure,RELATED_TO,0.7015345240852444
+detailed technology in core patent class,Identify key technologies,RELATED_TO,0.6461114289765133
+implications for stakeholders,support collective decision making,RELATED_TO,0.5452853697793753
+Proposed approach outperforms conventional approaches,Demonstrate superior performance on test dataset,RELATED_TO,0.5167991061070569
+Proposed approach outperforms conventional approaches,Identify key technologies,RELATED_TO,0.5309310837714439
+Proposed approach outperforms conventional approaches,Provide valuable reference for enterprises,RELATED_TO,0.5035847641711294
+Demonstrate superior performance on test dataset,network accessibility improved,RELATED_TO,0.5104590217213492
+proposes a novel method called intelligent patent network analysis,method enables visual network with great precision,RELATED_TO,0.58746065279904
+proposes a novel method called intelligent patent network analysis,verified utility with CNT-BLU patents,RELATED_TO,0.587834717349768
+proposes a novel method called intelligent patent network analysis,Identify patents belonging to cloud computing,RELATED_TO,0.6407588187373837
+proposes a novel method called intelligent patent network analysis,Reveal overall patent structure,RELATED_TO,0.6544790578503292
+proposes a novel method called intelligent patent network analysis,Identify key technologies,RELATED_TO,0.5206326986432928
+proposes a novel method called intelligent patent network analysis,Provide valuable reference for enterprises,RELATED_TO,0.5031728619709126
+proposes a novel method called intelligent patent network analysis,network accessibility improved,RELATED_TO,0.5029294512278835
+method enables visual network with great precision,network accessibility improved,RELATED_TO,0.6106227717754753
+method enables visual network with great precision,scale-free network characteristics,RELATED_TO,0.5486985614146633
+verified utility with CNT-BLU patents,Effective in collecting royalties,RELATED_TO,0.5666637527323023
+verified utility with CNT-BLU patents,Identify patents belonging to cloud computing,RELATED_TO,0.7058265866093208
+verified utility with CNT-BLU patents,Reveal overall patent structure,RELATED_TO,0.6257535670378344
+verified utility with CNT-BLU patents,Identify key technologies,RELATED_TO,0.5987491146610693
+verified utility with CNT-BLU patents,Provide valuable reference for enterprises,RELATED_TO,0.5465430040530709
+Effective in collecting royalties,Deterring potential entrants,RELATED_TO,0.5111729543558448
+Effective in collecting royalties,Identify patents belonging to cloud computing,RELATED_TO,0.5461039819197038
+Effective in collecting royalties,Reveal overall patent structure,RELATED_TO,0.5315068498297242
+Effective in collecting royalties,Provide valuable reference for enterprises,RELATED_TO,0.5755591888699463
+Effective in collecting royalties,China's position increasing,RELATED_TO,0.5516644307929678
+Deterring potential entrants,China's position increasing,RELATED_TO,0.5381747574036364
+Delaying R&D investments,Provide valuable reference for enterprises,RELATED_TO,0.509164289375262
+Delaying R&D investments,China's position increasing,RELATED_TO,0.5383703249405822
+Identify patents belonging to cloud computing,Reveal overall patent structure,RELATED_TO,0.6405268977932995
+Identify patents belonging to cloud computing,Identify key technologies,RELATED_TO,0.5874232868209632
+Reveal overall patent structure,Identify key technologies,RELATED_TO,0.5527193598582993
+Identify key technologies,Provide valuable reference for enterprises,RELATED_TO,0.5121168229748294
+network accessibility improved,scale-free network characteristics,RELATED_TO,0.5891598281419204
