@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Results</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Purpose</span> <span class="lx-label" style="background-color:#C8E6C9;">Results</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    This study explores the evolutionary mechanisms of the inter-firm collaborative innovation network in the Korean ICT industry, focusing on inter-firm homophily. Using firm network data based on a joint patent from 1980 to 2015, this study reveals that <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">firms</span> participate in collaborative innovation primarily to complement their technological resources. Also, <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">the</span> collaborative innovation network among Korean ICT firms has evolved mainly by homophily mechanisms and has limited expandability. The findings suggest that the government can promote SMEs’ participation in collaborative innovation by concentrating on supporting the development of technological capabilities.
+    This study explores the evolutionary mechanisms of the inter-firm collaborative innovation network in <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#C8E6C9;">the Korean ICT industry, focusing on inter-firm homophily. Using firm network data based on a joint patent from 1980 <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">to</span> 2015, this study reveals that <span class="lx-highlight" data-idx="2" style="background-color:#C8E6C9;">firms participate in collaborative innovation primarily to complement their technological resources.</span> Also, the collaborative innovation network among Korean ICT firms has evolved mainly by homophily mechanisms and has limited expandability.</span> The findings suggest that the government can promote SMEs’ participation in collaborative innovation by concentrating on supporting the development of technological capabilities.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,19 +114,19 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="1" value="0"
+             min="0" max="2" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/2</span> |
-      Pos <span id="posInfo">[252-257]</span>
+      Entity <span id="entityInfo">1/3</span> |
+      Pos <span id="posInfo">[219-221]</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Results", "text": "Firms mainly engage in collaborative innovation to complement missing technological resources.", "color": "#D2E3FC", "startPos": 252, "endPos": 257, "beforeText": "the Korean ICT industry, focusing on inter-firm homophily. Using firm network data based on a joint patent from 1980 to 2015, this study reveals that ", "extractionText": "firms", "afterText": " participate in collaborative innovation primarily to complement their technological resources. Also, the collaborative innovation network among Korea", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Results", "text": "The Korean ICT collaborative network evolved primarily through homophily and exhibits limited expandability.", "color": "#D2E3FC", "startPos": 359, "endPos": 362, "beforeText": "from 1980 to 2015, this study reveals that firms participate in collaborative innovation primarily to complement their technological resources. Also, ", "extractionText": "the", "afterText": " collaborative innovation network among Korean ICT firms has evolved mainly by homophily mechanisms and has limited expandability. The findings sugges", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Results", "text": "The Korean ICT collaborative network has evolved mainly through homophily mechanisms and shows limited expandability.", "color": "#C8E6C9", "startPos": 102, "endPos": 492, "beforeText": "This study explores the evolutionary mechanisms of the inter-firm collaborative innovation network in ", "extractionText": "the Korean ICT industry, focusing on inter-firm homophily. Using firm network data based on a joint patent from 1980 to 2015, this study reveals that firms participate in collaborative innovation primarily to complement their technological resources. Also, the collaborative innovation network among Korean ICT firms has evolved mainly by homophily mechanisms and has limited expandability.", "afterText": " The findings suggest that the government can promote SMEs\u2019 participation in collaborative innovation by concentrating on supporting the development o", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Purpose", "text": "To uncover the evolutionary mechanisms shaping the collaborative innovation network among Korean ICT firms.", "color": "#D2E3FC", "startPos": 219, "endPos": 221, "beforeText": "laborative innovation network in the Korean ICT industry, focusing on inter-firm homophily. Using firm network data based on a joint patent from 1980 ", "extractionText": "to", "afterText": " 2015, this study reveals that firms participate in collaborative innovation primarily to complement their technological resources. Also, the collabor", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Results", "text": "Firms primarily engage in collaborative innovation to complement their technological resources.", "color": "#C8E6C9", "startPos": 252, "endPos": 352, "beforeText": "the Korean ICT industry, focusing on inter-firm homophily. Using firm network data based on a joint patent from 1980 to 2015, this study reveals that ", "extractionText": "firms participate in collaborative innovation primarily to complement their technological resources.", "afterText": " Also, the collaborative innovation network among Korean ICT firms has evolved mainly by homophily mechanisms and has limited expandability. The findi", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

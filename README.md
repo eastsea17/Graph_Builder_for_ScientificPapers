@@ -57,7 +57,11 @@ The system transforms text into a graph:
 - **Semantic Similarity Algorithm**:
   - **Purpose**: To connect related research across different papers.
   - **Method**: Calculates Cosine Similarity between embeddings of all extracted entities.
-  - **Result**: If similarity > threshold, creates a `RELATED_TO` edge. This reveals hidden connections (e.g., "UAV" and "Drone" are linked).
+  - **Auto-Thresholding Logic**:
+    - **Problem**: Fixed thresholds can lead to "hairball" graphs (too many edges) or sparse graphs depending on the data distribution.
+    - **Solution**: The system analyzes the distribution of all similarity scores and dynamically sets the threshold to connect only the **Top N%** (e.g., Top 5%) of pairs.
+    - **Configuration**: Set `similarity.mode` to "auto" and adjust `similarity.top_percentile` in `config.yaml`.
+  - **Result**: Creates a `RELATED_TO` edge between significantly related entities, adapting to the dataset's characteristics.
 
 ### 2. Visualizer Logic (`src/visualizer.py`)
 
@@ -81,7 +85,7 @@ Since the base library only visualizes single documents, the system implements a
 
 ## File Structure
 
-```
+```text
 .
 ├── Input
 │   └── rawdata.csv              # Input CSV containing abstracts

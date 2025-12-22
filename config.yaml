@@ -30,5 +30,5 @@ similarity:
   enabled: true
   mode: "auto" # "fixed" or "auto"
   threshold: 0.5 # Used when mode is "fixed"
-  top_percentile: 90 # Used when mode is "auto" (connects top 5%)
+  top_percentile: 95 # Used when mode is "auto" (connects top 5%)
   embedding_model: "nomic-embed-text" # or use one of the generation models if it supports embeddings, but dedicated is better.

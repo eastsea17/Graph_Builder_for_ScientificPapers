@@ -97,4 +97,93 @@
 .lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
 .lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
 .lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
-</style><div class="lx-animated-wrapper"><p>No valid extractions to animate.</p></div>
+</style>
+<div class="lx-animated-wrapper lx-gif-optimized">
+  <div class="lx-attributes-panel">
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Results</span></div>
+    <div id="attributesContainer"></div>
+  </div>
+  <div class="lx-text-window" id="textWindow">
+    To evaluate the efficacy and safety of Chinese patent medicines in the treatment of insomnia by frequency network Meta-analysis. Randomized controlled trials of Chinese patent medicines for insomnia were retrieved from CNKI, Wanfang, VIP, SinoMed, PubMed, EMbase and Cochrane Library databases from the time of database establishment to October 2020. The quality of the included RCTs was evaluated according to the Cochrane bias risk standard, and the data was analyzed by RevMan 5.3 and Stata/MP 15.1. A total of 11 kinds of Chinese patent medicines in <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">27 RCTs</span> were included. According to Meta-analysis, in term of the effective rate, Tianmeng Liquid, Zaoren Anshen Capsules, Shumian Capsules, Shensong Yangxin Capsules, Shenqi Wuweizi Tablets, Shugan Jieyu Capsules, Anshen Bunao Liquid and Qiye Anshen Tablets combined with nonbenzodiazepine drugs(NBZDs) were superior to NBZDs alone. In term of the improvement of Pittsburg sleeping quality index(PSQI) score, Tianmeng Liquid, Shumian Capsules, Shensong Yangxin Capsules, Bailemian Capsules, Shenqi Wuweizi Tablets, Shugan Jieyu Capsules, Yangxue Qingnao Granules and Yindan Xinnaotong Capsules combined with NBZDs were superior to NBZDs alone. In terms of the safety, Shumian Capsules, Shensong Yangxin Capsules, Shenqi Wuweizi Tablets and Qiye Anshen Tablets combined with NBZDs were superior to NBZDs alone. In terms of the avoidance of dizziness and headache, Qiye Anshen Tablets combined with NBZDs were superior to NBZDs alone. The results of Network Meta-analysis indicated that in term of the effective rate, top three optimal medication regimens were NBZDs combined with Shugan Jieyu Capsules, combined with Zaoren Anshen Capsules and combined with Shensong Yangxin Capsules in the order from high to low. With the respect of improvement of PSQI score, top three optimal medication regimens were NBZDs combined with Yangxue Qingnao Granules, combined with Tianmeng Liquid and combined with Yindan Xinnaotong Capsules in the order from high to low. In terms of the safety, top three optimal medication regimens were NBZDs combined with Qiye Anshen Tablets, combined with Shensong Yangxin Capsules and combined with Shenqi Wuweizi Tablets in the order from high to low. In terms of the avoidance of dizziness and headache, top three optimal medication regimens were NBZDs combined with Qiye Anshen Tablets, combined with Zaoren Anshen Capsules and combined with Shumian Capsules in the order from high to low. In terms of the avoidance of fatigue, top three optimal medication regimens were NBZDs combined with Shensong Yangxin Capsules, combined with Shumian Capsules and combined with Qiye Anshen Tablets in the order from high to low. In conclusion, Chinese patent medicines combined with NBZDs can effectively alleviate the symptoms of insomnia with a high safety. However, the conclusion of this study needs to be verified by more high-quality studies because of the low methodological quality of the included studies.
+  </div>
+  <div class="lx-controls">
+    <div class="lx-button-row">
+      <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+      <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+      <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+    </div>
+    <div class="lx-progress-container">
+      <input type="range" id="progressSlider" class="lx-progress-slider"
+             min="0" max="0" value="0"
+             onchange="jumpToExtraction(this.value)">
+    </div>
+    <div class="lx-status-text">
+      Entity <span id="entityInfo">1/1</span> |
+      Pos <span id="posInfo">[554-561]</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const extractions = [{"index": 0, "class": "Results", "text": "27 RCTs involving 11 CPMs showed that CPMs combined with NBZDs were superior to NBZDs alone in effective rate, PSQI improvement, overall safety, and reduction of dizziness, headache, and fatigue.", "color": "#D2E3FC", "startPos": 554, "endPos": 561, "beforeText": "ing to the Cochrane bias risk standard, and the data was analyzed by RevMan 5.3 and Stata/MP 15.1. A total of 11 kinds of Chinese patent medicines in ", "extractionText": "27 RCTs", "afterText": " were included. According to Meta-analysis, in term of the effective rate, Tianmeng Liquid, Zaoren Anshen Capsules, Shumian Capsules, Shensong Yangxin", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    let currentIndex = 0;
+    let isPlaying = false;
+    let animationInterval = null;
+    let animationSpeed = 1.0;
+
+    function updateDisplay() {
+      const extraction = extractions[currentIndex];
+      if (!extraction) return;
+
+      document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+      document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+      document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+      document.getElementById('progressSlider').value = currentIndex;
+
+      const playBtn = document.querySelector('.lx-control-btn');
+      if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+      const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+      if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+      const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+      if (currentSpan) {
+        currentSpan.classList.add('lx-current-highlight');
+        currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+      }
+    }
+
+    function nextExtraction() {
+      currentIndex = (currentIndex + 1) % extractions.length;
+      updateDisplay();
+    }
+
+    function prevExtraction() {
+      currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+      updateDisplay();
+    }
+
+    function jumpToExtraction(index) {
+      currentIndex = parseInt(index);
+      updateDisplay();
+    }
+
+    function playPause() {
+      if (isPlaying) {
+        clearInterval(animationInterval);
+        isPlaying = false;
+      } else {
+        animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+        isPlaying = true;
+      }
+      updateDisplay();
+    }
+
+    window.playPause = playPause;
+    window.nextExtraction = nextExtraction;
+    window.prevExtraction = prevExtraction;
+    window.jumpToExtraction = jumpToExtraction;
+
+    updateDisplay();
+  })();
+</script>
