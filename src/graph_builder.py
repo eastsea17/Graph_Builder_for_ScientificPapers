@@ -120,7 +120,25 @@ class GraphBuilder:
                 
                 # Extract pairs > threshold
                 # Only upper triangle to avoid duplicates
-                rows, cols = np.where(np.triu(sim_matrix, k=1) > self.similarity_threshold)
+                
+                # --- Auto-thresholding Logic ---
+                # Extract values from upper triangle (excluding diagonal)
+                upper_tri_indices = np.triu_indices_from(sim_matrix, k=1)
+                upper_tri_values = sim_matrix[upper_tri_indices]
+                
+                active_threshold = self.similarity_threshold
+                mode = self.config['similarity'].get('mode', 'fixed')
+                
+                if mode == 'auto' and len(upper_tri_values) > 0:
+                    percentile = self.config['similarity'].get('top_percentile', 95)
+                    # Calculate dynamic threshold
+                    dynamic_threshold = np.percentile(upper_tri_values, percentile)
+                    print(f"Dynamic threshold set to: {dynamic_threshold:.4f} (Top {100-percentile}%)")
+                    active_threshold = dynamic_threshold
+                    
+                # Use numpy where with the active threshold
+                rows, cols = np.where(np.triu(sim_matrix, k=1) > active_threshold)
+                # -------------------------------
                 
                 for r, c in zip(rows, cols):
                     score = float(sim_matrix[r, c])
