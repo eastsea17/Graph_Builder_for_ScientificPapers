@@ -83,6 +83,9 @@ Since the base library only visualizes single documents, the system implements a
     - A **Sidebar** listing all 119+ papers with search functionality.
     - An **IFrame** that dynamically loads the individual page corresponding to the selected paper.
 
+<img width="3014" height="1394" alt="image" src="https://github.com/user-attachments/assets/55e9ca38-038b-4e4c-bb52-3214386171c2" />
+
+
 ## File Structure
 
 ```text
