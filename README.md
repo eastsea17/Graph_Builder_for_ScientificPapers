@@ -79,24 +79,6 @@ This module refines knowledge rather than just connecting text.
 * **Multi-Document Player**:  
   * Generates a unified HTML dashboard with a searchable sidebar and an embedded document viewer using the langextract library.
 
-## **File Structure**
-
-Plaintext
-
-.  
-├── Input  
-│   └── rawdata.csv              \# Input CSV containing abstracts  
-├── Output  
-│   └── generated/               \# Generated results (HTML, CSV, JSONL)  
-├── src  
-│   ├── main.py                  \# Entry point  
-│   ├── extractor.py             \# Pydantic-based structured extraction  
-│   ├── graph\_builder.py         \# Entity Resolution & Graph Construction  
-│   ├── visualizer.py            \# Multiprocessing Visualization Engine  
-│   └── ollama\_client.py         \# Ollama API Wrapper  
-├── config.yaml                  \# Configuration file  
-└── README.md                    \# Documentation
-
 ## **License**
 
 MIT License
