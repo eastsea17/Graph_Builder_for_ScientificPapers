@@ -103,6 +103,60 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 
 ---
 
+## System Architecture
+
+graph TD
+    %% 스타일 정의
+    classDef input fill:#f9f,stroke:#333,stroke-width:2px,color:black;
+    classDef module fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:black;
+    classDef logic fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,stroke-dasharray: 5 5,color:black;
+    classDef storage fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:black;
+    classDef output fill:#dcedc8,stroke:#558b2f,stroke-width:2px,color:black;
+
+    %% 1. 입력 단계
+    Input([📄 Raw Text<br/>논문 초록 Abstract]):::input
+    
+    %% 2. Extraction 단계
+    subgraph S1 [Phase 1: Extraction]
+        direction TB
+        Extractor(extractor.py):::module
+        LLM{LLM + Pydantic}:::logic
+        DataStruct[구조화된 JSON<br/>Background, Purpose,<br/>Methodology, Results]:::storage
+        
+        Input --> Extractor
+        Extractor --> LLM
+        LLM -- Schema Parsing --> DataStruct
+    end
+
+    %% 3. Graph Builder 단계
+    subgraph S2 [Phase 2: Graph Building]
+        direction TB
+        Builder(graph_builder.py):::module
+        ER{Entity Resolver<br/>임베딩 유사도 분석}:::logic
+        Files[CSV Files<br/>Nodes & Edges]:::storage
+        
+        DataStruct --> Builder
+        Builder -- Node/Edge 생성 --> ER
+        ER -- 동의어 통합 (Canonicalization) --> Files
+    end
+
+    %% 4. Visualizer 단계
+    subgraph S3 [Phase 3: Visualization]
+        direction TB
+        Vis(visualizer.py):::module
+        Aligner{Word Aligner<br/>원본-추출 텍스트 매핑}:::logic
+        HTML[Interactive HTML<br/>Highlighting UI]:::output
+
+        Files --> Vis
+        Input -.-> Vis
+        Vis --> Aligner
+        Aligner --> HTML
+    end
+
+    %% 흐름 연결
+    S1 ==> S2
+    S2 ==> S3
+
 ## **License**
 
 MIT License
