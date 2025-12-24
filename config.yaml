@@ -1,5 +1,6 @@
 
 input_file: "Input/rawdata.csv"
+abstract_col: "Abstract" # The column name in the CSV containing the text to process
 output_dir: "Output/generated"
 
 ollama:

@@ -63,16 +63,27 @@ class Extractor:
     def process_csv(self, file_path):
         try:
             df = pd.read_csv(file_path)
-            # Find abstract column case-insensitively or by position
+            
+            # 1. Config에서 컬럼명 확인
+            target_col = self.config.get('abstract_col')
             abstract_col = None
-            for col in df.columns:
-                if 'abstract' in col.lower():
-                    abstract_col = col
-                    break
-            if not abstract_col:
-                 abstract_col = df.columns[0] # Fallback to first column
+
+            if target_col and target_col in df.columns:
+                abstract_col = target_col
+                print(f"Using configured column: '{abstract_col}'")
+            else:
+                # 2. Config에 없거나 잘못된 경우, 자동으로 찾기 (Case-insensitive 'abstract')
+                logging.info(f"Configured column '{target_col}' not found. Attempting auto-detection...")
+                for col in df.columns:
+                    if 'abstract' in col.lower():
+                        abstract_col = col
+                        break
+                # 3. 그래도 없으면 첫 번째 컬럼 사용
+                if not abstract_col:
+                    abstract_col = df.columns[0]
+                    logging.warning(f"No 'abstract' column found. Defaulting to first column: '{abstract_col}'")
                  
-            print(f"Processing {len(df)} records with Structured Extraction...")
+            print(f"Processing {len(df)} records with Structured Extraction (Column: {abstract_col})...")
             
             results = []
             
