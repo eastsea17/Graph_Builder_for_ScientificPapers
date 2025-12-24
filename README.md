@@ -4,7 +4,9 @@ This tool extracts structured information (Background, Purpose, Methodology, Res
 
 Recent updates include **Pydantic-based strict data validation**, **Advanced Entity Resolution**, and **Multiprocessing-based high-performance visualization**.
 
-## **Key Features**
+---
+
+## **✨ Key Features**
 
 1. **Structured Extraction (with Pydantic)**:  
    * Enforces the LLM to strictly adhere to a defined JSON schema using Pydantic.  
@@ -17,7 +19,9 @@ Recent updates include **Pydantic-based strict data validation**, **Advanced Ent
 4. **Auto-Thresholding Graph**:  
    * Dynamically adjusts the similarity threshold based on the data distribution to create an optimal network structure (avoiding hairball graphs).
 
-## **Setup**
+---
+
+## **🚀 Setup**
 
 Requires Python 3.8+. Install the dependencies:
 
@@ -32,7 +36,9 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
     ollama pull gpt-oss:120b-cloud  
     ollama pull nomic-embed-text
 
-## **Usage**
+---
+
+## **💻 Usage**
 
 1. Configuration (config.yaml):  
    Set your input file path, selected models, and similarity thresholds.  
@@ -40,7 +46,9 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
    Bash  
    python3 src/main.py \--config config.yaml
 
-## **Output**
+---
+
+## **📊 Output**
 
 Results are saved in Output/generated/:
 
@@ -52,11 +60,15 @@ Results are saved in Output/generated/:
   * graph\_visualization.html: **Main Dashboard**. Open this in your browser to explore the papers and graph.  
   * extraction\_results.jsonl: The raw extracted and aligned data.
 
-## **Visualization Example**
+---
+
+## **🖼️ Visualization Example**
 
 ![Graph Visualization Example](graph_visualization_example.png)
 
-## **System Logic & Algorithms**
+---
+
+## **🧠 System Logic & Algorithms**
 
 ### **1\. Extraction Logic (src/extractor.py)**
 
@@ -83,7 +95,9 @@ This module refines knowledge rather than just connecting text.
 * **Multi-Document Player**:  
   * Generates a unified HTML dashboard with a searchable sidebar and an embedded document viewer using the langextract library.
 
-## **File Structure**
+---
+
+## **📂 File Structure**
 
 ```text
 .
@@ -100,6 +114,8 @@ This module refines knowledge rather than just connecting text.
 ├── config.yaml                  # Configuration file
 └── README.md                    # Documentation
 ```
+
+---
 
 ## **License**
 

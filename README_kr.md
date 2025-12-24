@@ -4,7 +4,9 @@
 
 최신 업데이트를 통해 **Pydantic 기반의 엄격한 데이터 검증**, **유사 엔티티 자동 병합(Entity Resolution)**, 그리고 **멀티프로세싱 기반의 고속 시각화** 기능이 추가되었습니다.
 
-## **주요 기능 (Key Features)**
+---
+
+## **✨ 주요 기능 (Key Features)**
 
 1. **Structured Extraction (with Pydantic)**:  
    * LLM이 정의된 JSON 스키마를 100% 준수하도록 강제합니다.  
@@ -17,7 +19,9 @@
 4. **Auto-Thresholding Graph**:  
    * 데이터 분포에 따라 그래프 연결 강도를 자동으로 조절하여 최적의 네트워크 구조를 생성합니다.
 
-## **설치 (Setup)**
+---
+
+## **🚀 설치 (Setup)**
 
 Python 3.8 이상이 필요합니다. 아래 명령어로 필수 패키지를 설치하세요.
 
@@ -25,19 +29,12 @@ Bash
 
 pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 
-* **필수 요구사항**:  
-  * [Ollama](https://ollama.com/)가 설치되어 있고 실행 중이어야 합니다 (ollama serve).  
-  * 설정된 LLM 모델(예: gpt-oss:120b-cloud 등)과 임베딩 모델(nomic-embed-text)이 ollama pull 되어 있어야 합니다.
-
-## **사용법 (Usage)**
-
-1. 설정 (config.yaml):  
-   입력 파일 경로, 사용할 모델, 유사도 임계값 등을 설정합니다.  
-2. **실행**:  
    Bash  
    python3 src/main.py \--config config.yaml
 
-## **출력 결과 (Output)**
+---
+
+## **📊 출력 결과 (Output)**
 
 결과는 Output/generated/ 디렉토리에 저장됩니다.
 
@@ -49,11 +46,15 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
   * graph\_visualization.html: **메인 대시보드 파일**. 브라우저에서 열어 모든 논문을 탐색할 수 있습니다.  
   * extraction\_results.jsonl: 추출 및 정렬된 원본 데이터.
 
-## **시각화 예시 (Visualization Example)**
+---
+
+## **🖼️ 시각화 예시 (Visualization Example)**
 
 ![Graph Visualization Example](graph_visualization_example.png)
 
-## **시스템 로직 및 알고리즘**
+---
+
+## **🧠 시스템 로직 및 알고리즘**
 
 ### **1\. Extraction Logic (src/extractor.py)**
 
@@ -80,7 +81,9 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 * **Multi-Document Player**:  
   * langextract 라이브러리를 기반으로, 검색 및 필터링이 가능한 사이드바와 개별 논문 뷰어가 결합된 통합 HTML 대시보드를 생성합니다.
 
-## **파일 구조 (File Structure)**
+---
+
+## **📂 파일 구조 (File Structure)**
 
 ```text
 .
@@ -97,6 +100,8 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 ├── config.yaml                  # 전체 설정 파일
 └── README.md                    # 설명서
 ```
+
+---
 
 ## **License**
 
