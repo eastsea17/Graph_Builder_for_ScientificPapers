@@ -1,110 +1,102 @@
+# **Scientific Paper Info Extractor & Graph Builder (Advanced)**
 
-# Scientific Paper Info Extractor with LangExtract(Google) and Ollama
+This tool extracts structured information (Background, Purpose, Methodology, Results) from paper abstracts using Ollama LLMs, constructs a **Knowledge Graph** through semantic analysis, and generates an interactive multi-document visualization dashboard.
 
-This tool extracts structured information (Background, Purpose, Methodology, Results) from paper abstracts using Ollama LLMs, generates a knowledge graph, and creates an interactive multi-document visualization dashboard.
+Recent updates include **Pydantic-based strict data validation**, **Advanced Entity Resolution**, and **Multiprocessing-based high-performance visualization**.
 
-## Setup
+## **Key Features**
 
-1. **Install Dependencies:**
-   Ensure you have Python installed. The required packages are:
+1. **Structured Extraction (with Pydantic)**:  
+   * Enforces the LLM to strictly adhere to a defined JSON schema using Pydantic.  
+   * Prevents common issues like missing fields or malformed JSON, ensuring data integrity.  
+2. **Advanced Entity Resolution**:  
+   * Goes beyond simple text matching by using **Embeddings** and **LLM Canonicalization** to merge synonyms.  
+   * *Example: "CNN", "ConvNet", "Convolutional Neural Network" → Normalized to "Convolutional Neural Network".*  
+3. **High-Performance Visualization**:  
+   * Implements **Multiprocessing** for the computationally expensive text alignment task, significantly speeding up the processing of large datasets.  
+4. **Auto-Thresholding Graph**:  
+   * Dynamically adjusts the similarity threshold based on the data distribution to create an optimal network structure (avoiding hairball graphs).
 
-   ```bash
-   pip install pandas requests numpy pyyaml tqdm langextract
-   ```
+## **Setup**
 
-   (Note: `langextract` is required for the visualization component.)
+Requires Python 3.8+. Install the dependencies:
 
-2. **Configure:**
-   Values are set in `config.yaml`.
-   - `input_file`: Path to CSV with abstracts.
-   - `ollama.selected_model`: Choose between `local_small`, `cloud_large`, etc.
-   - `similarity.enabled`: Toggle graph similarity edges.
+Bash
 
-## Usage
+pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 
-Run the main script:
+* **Prerequisites**:  
+  * [Ollama](https://ollama.com/) must be installed and running (ollama serve).  
+  * Pull the required models (e.g., your selected LLM and the embedding model):  
+    Bash  
+    ollama pull gpt-oss:120b-cloud  
+    ollama pull nomic-embed-text
 
-```bash
-python3 src/main.py
-```
+## **Usage**
 
-Or with a specific config:
+1. Configuration (config.yaml):  
+   Set your input file path, selected models, and similarity thresholds.  
+2. **Run**:  
+   Bash  
+   python3 src/main.py \--config config.yaml
 
-```bash
-python3 src/main.py --config config.yaml
-```
+## **Output**
 
-## Output
+Results are saved in Output/generated/:
 
-Results are saved in `Output/generated/`:
+* **CSV Files** (for Graph Database/RAG):  
+  * papers.csv: Paper nodes.  
+  * entities.csv: Canonicalized entity nodes (Background, Methodology, etc.).  
+  * relations.csv: Relationships (Paper-Entity and Entity-Entity similarity).  
+* **Visualization**:  
+  * graph\_visualization.html: **Main Dashboard**. Open this in your browser to explore the papers and graph.  
+  * extraction\_results.jsonl: The raw extracted and aligned data.
 
-- **CSV Files** (for GraphRAG/Database):
-  - `papers.csv`: Paper nodes.
-  - `research_background.csv`, etc.: Entity nodes.
-  - `relations.csv`: Edges (Relationship between Paper-Entity and Entity-Entity similarity).
-- **Visualization**:
-  - `graph_visualization.html`: **Main Dashboard**. Open this file in a browser to navigate through all papers.
-  - `pages/`: Contains individual HTML visualizations for each paper.
+## **System Logic & Algorithms**
 
-## System Logic & Algorithms
+### **1\. Extraction Logic (src/extractor.py)**
 
-### 1. Graph Builder Logic (`src/graph_builder.py`)
+* **Schema Enforcement**: Uses Pydantic models to inject a strict JSON schema into the system prompt.  
+* **Validation**: Automatically validates the LLM output. If the output violates the schema (e.g., wrong data type), it handles the error to ensure only valid data enters the pipeline.
 
-The system transforms text into a graph:
+### **2\. Graph Builder Logic (src/graph\_builder.py)**
 
-- **Node Creation**: Converts Abstracts to `Paper` nodes and extracted fields to `Entity` nodes.
-- **Edge Creation**: Links Papers to Entities (`HAS_METHODOLOGY`, etc.).
-- **Semantic Similarity Algorithm**:
-  - **Purpose**: To connect related research across different papers.
-  - **Method**: Calculates Cosine Similarity between embeddings of all extracted entities.
-  - **Auto-Thresholding Logic**:
-    - **Problem**: Fixed thresholds can lead to "hairball" graphs (too many edges) or sparse graphs depending on the data distribution.
-    - **Solution**: The system analyzes the distribution of all similarity scores and dynamically sets the threshold to connect only the **Top N%** (e.g., Top 5%) of pairs.
-    - **Configuration**: Set `similarity.mode` to "auto" and adjust `similarity.top_percentile` in `config.yaml`.
-  - **Result**: Creates a `RELATED_TO` edge between significantly related entities, adapting to the dataset's characteristics.
+This module refines knowledge rather than just connecting text.
 
-### 2. Visualizer Logic (`src/visualizer.py`)
+* **Entity Resolution**:  
+  1. **Embedding**: Calculates vector embeddings for all extracted entities.  
+  2. **Semantic Clustering**: Groups semantically similar entities using Cosine Similarity and NetworkX (Connected Components).  
+  3. **Canonicalization (LLM)**: Asks the LLM to select or generate the most standard scientific term (Canonical Name) for each cluster.  
+  4. **Merge**: Replaces original text with the canonical name in the graph, effectively removing duplicates.  
+* **Semantic Relation**:  
+  * Connects entities based on semantic similarity, using dynamic thresholding (similarity.mode: "auto") to keep only the top N% of strongest connections.
 
-The visualizer transforms structured data into an interactive HTML dashboard using `langextract`.
+### **3\. Visualizer Logic (src/visualizer.py)**
 
-#### A. Text Alignment (The Core Challenge)
+* **Parallel Alignment**:  
+  * The process of mapping extracted text back to the exact character indices in the source abstract is CPU-intensive.  
+  * We use ProcessPoolExecutor to parallelize this task across all available CPU cores, drastically reducing processing time.  
+* **Multi-Document Player**:  
+  * Generates a unified HTML dashboard with a searchable sidebar and an embedded document viewer using the langextract library.
 
-LLMs extract text strings, but visualization requires precise **character intervals** (indices) to highlight text in the original abstract.
+## **File Structure**
 
-- **WordAligner**: The system uses `langextract.resolver.WordAligner` to map extracted strings back to the source text.
-- **Fuzzy Matching**: It employs both exact matching and fuzzy matching (using `difflib`) to handle minor discrepancies (like whitespace or punctuation changes) between the LLM output and the original text.
-- **Multiprocessing Optimization**:
-  - **Problem**: Fuzzy matching is computationally expensive, making sequential processing slow for large datasets.
-  - **Solution**: The alignment process uses `ProcessPoolExecutor` to parallelize work across all available CPU cores, providing significant speed improvements (e.g., ~6-7x boost on 8-core systems).
+Plaintext
 
-#### B. Multi-Document Dashboard Generation
+.  
+├── Input  
+│   └── rawdata.csv              \# Input CSV containing abstracts  
+├── Output  
+│   └── generated/               \# Generated results (HTML, CSV, JSONL)  
+├── src  
+│   ├── main.py                  \# Entry point  
+│   ├── extractor.py             \# Pydantic-based structured extraction  
+│   ├── graph\_builder.py         \# Entity Resolution & Graph Construction  
+│   ├── visualizer.py            \# Multiprocessing Visualization Engine  
+│   └── ollama\_client.py         \# Ollama API Wrapper  
+├── config.yaml                  \# Configuration file  
+└── README.md                    \# Documentation
 
-Since the base library only visualizes single documents, the system implements a custom dashboard generator:
+## **License**
 
-1. **Individual Page Generation**: Iterates through all aligned documents and generates a standard `langextract` HTML visualization for each, saving them to `Output/generated/pages/doc_{i}.html`.
-2. **Dashboard Construction**: Creates a master `graph_visualization.html` containing:
-    - A **Sidebar** listing all 119+ papers with search functionality.
-    - An **IFrame** that dynamically loads the individual page corresponding to the selected paper.
-
-## File Structure
-
-```text
-.
-├── Input
-│   └── rawdata.csv              # Input CSV containing abstracts
-├── Output
-│   ├── generated/               # Generated results and visualization
-│   │   ├── graph_visualization.html  # <--- OPEN THIS FILE
-│   │   ├── pages/               # Individual abstract visualizations
-│   │   ├── extraction_results.jsonl
-│   │   └── *.csv                # Nodes and Relations
-│   └── example/                 # Example output format
-├── src
-│   ├── main.py                  # Entry point
-│   ├── extractor.py             # LLM extraction logic
-│   ├── graph_builder.py         # Graph construction & Similarity
-│   ├── visualizer.py            # Dashboard & Alignment logic
-│   └── ollama_client.py         # Ollama API wrapper
-├── config.yaml                  # Configuration
-└── README.md
-```
+MIT License
