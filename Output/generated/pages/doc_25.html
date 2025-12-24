@@ -97,4 +97,93 @@
 .lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
 .lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
 .lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
-</style><div class="lx-animated-wrapper"><p>No valid extractions to animate.</p></div>
+</style>
+<div class="lx-animated-wrapper lx-gif-optimized">
+  <div class="lx-attributes-panel">
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span> <span class="lx-label" style="background-color:#FEF0C3;">Purpose</span> <span class="lx-label" style="background-color:#F9DEDC;">Results</span></div>
+    <div id="attributesContainer"></div>
+  </div>
+  <div class="lx-text-window" id="textWindow">
+    This paper presents <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#FEF0C3;">an <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">open innovation strategy by identifying the patent impact index and cooperation network through patent analysis for leading companies developing technology in the UAM field.</span> Among companies developing UAM technology, <span class="lx-highlight" data-idx="2" style="background-color:#C8E6C9;">patent analysis was conducted on the leading companies with active patent activities, technology classification was used to match companies by parts, and a technical capability index was utilized to identify <span class="lx-highlight" data-idx="3" style="background-color:#F9DEDC;">the</span> companies.</span> When developing UAM technology in the future, this can help companies seek effective partners to improve competitiveness in technology development. To the best of our knowledge, the work done in this paper is unprecedented, as it suggests methods for patent analysis and verifies them by analyzing the UAM patents with the proposed method.</span>
+  </div>
+  <div class="lx-controls">
+    <div class="lx-button-row">
+      <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+      <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+      <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+    </div>
+    <div class="lx-progress-container">
+      <input type="range" id="progressSlider" class="lx-progress-slider"
+             min="0" max="3" value="0"
+             onchange="jumpToExtraction(this.value)">
+    </div>
+    <div class="lx-status-text">
+      Entity <span id="entityInfo">1/4</span> |
+      Pos <span id="posInfo">[23-462]</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const extractions = [{"index": 0, "class": "Purpose", "text": "Develop an open\u2011innovation strategy by identifying a patent impact index and cooperation network for leading UAM firms.", "color": "#FEF0C3", "startPos": 20, "endPos": 196, "beforeText": "This paper presents ", "extractionText": "an open innovation strategy by identifying the patent impact index and cooperation network through patent analysis for leading companies developing technology in the UAM field.", "afterText": " Among companies developing UAM technology, patent analysis was conducted on the leading companies with active patent activities, technology classific", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Background", "text": "Open innovation is critical for companies developing UAM technology.", "color": "#D2E3FC", "startPos": 23, "endPos": 462, "beforeText": "This paper presents an ", "extractionText": "open innovation strategy by identifying the patent impact index and cooperation network through patent analysis for leading companies developing technology in the UAM field. Among companies developing UAM technology, patent analysis was conducted on the leading companies with active patent activities, technology classification was used to match companies by parts, and a technical capability index was utilized to identify the companies.", "afterText": " When developing UAM technology in the future, this can help companies seek effective partners to improve competitiveness in technology development. T", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Methodology", "text": "Conducted patent analysis on leading companies with active UAM patent activity.", "color": "#C8E6C9", "startPos": 240, "endPos": 802, "beforeText": " cooperation network through patent analysis for leading companies developing technology in the UAM field. Among companies developing UAM technology, ", "extractionText": "patent analysis was conducted on the leading companies with active patent activities, technology classification was used to match companies by parts, and a technical capability index was utilized to identify the companies. When developing UAM technology in the future, this can help companies seek effective partners to improve competitiveness in technology development. To the best of our knowledge, the work done in this paper is unprecedented, as it suggests methods for patent analysis and verifies them by analyzing the UAM patents with the proposed method.", "afterText": "", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}, {"index": 3, "class": "Results", "text": "The method produced a patent impact index and mapped cooperation networks among UAM companies.", "color": "#F9DEDC", "startPos": 448, "endPos": 451, "beforeText": "h active patent activities, technology classification was used to match companies by parts, and a technical capability index was utilized to identify ", "extractionText": "the", "afterText": " companies. When developing UAM technology in the future, this can help companies seek effective partners to improve competitiveness in technology dev", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    let currentIndex = 0;
+    let isPlaying = false;
+    let animationInterval = null;
+    let animationSpeed = 1.0;
+
+    function updateDisplay() {
+      const extraction = extractions[currentIndex];
+      if (!extraction) return;
+
+      document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+      document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+      document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+      document.getElementById('progressSlider').value = currentIndex;
+
+      const playBtn = document.querySelector('.lx-control-btn');
+      if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+      const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+      if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+      const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+      if (currentSpan) {
+        currentSpan.classList.add('lx-current-highlight');
+        currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+      }
+    }
+
+    function nextExtraction() {
+      currentIndex = (currentIndex + 1) % extractions.length;
+      updateDisplay();
+    }
+
+    function prevExtraction() {
+      currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+      updateDisplay();
+    }
+
+    function jumpToExtraction(index) {
+      currentIndex = parseInt(index);
+      updateDisplay();
+    }
+
+    function playPause() {
+      if (isPlaying) {
+        clearInterval(animationInterval);
+        isPlaying = false;
+      } else {
+        animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+        isPlaying = true;
+      }
+      updateDisplay();
+    }
+
+    window.playPause = playPause;
+    window.nextExtraction = nextExtraction;
+    window.prevExtraction = prevExtraction;
+    window.jumpToExtraction = jumpToExtraction;
+
+    updateDisplay();
+  })();
+</script>

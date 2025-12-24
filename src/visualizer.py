@@ -5,12 +5,66 @@ import langextract as lx
 from langextract.data import AnnotatedDocument, Extraction
 from langextract.resolver import WordAligner
 from itertools import chain
+from concurrent.futures import ProcessPoolExecutor, as_completed
+
+def process_single_document(res):
+    """
+    Process a single document result: Extract and Align.
+    This function is run in a separate process.
+    """
+    try:
+        # Create a fresh aligner instance for each process
+        aligner = WordAligner()
+        
+        extractions = []
+        extracted_data = res.get('extracted', {})
+        
+        # 1. Prepare Extractions
+        if extracted_data:
+            for category, items in extracted_data.items():
+                if not items: continue
+                class_name = category.capitalize()
+                for item in items:
+                    if not item: continue
+                    ext = Extraction(
+                        extraction_class=class_name,
+                        extraction_text=item.strip()
+                    )
+                    extractions.append(ext)
+        
+        # 2. Perform Alignment
+        aligned_extractions = []
+        if extractions:
+            try:
+                aligned_groups = aligner.align_extractions(
+                    extraction_groups=[extractions], 
+                    source_text=res['full_text']
+                )
+                aligned_extractions = list(chain.from_iterable(aligned_groups))
+            except Exception as e:
+                # Logging in subprocess might not show up depending on config, but good to have
+                # We'll just return unaligned if it fails
+                aligned_extractions = extractions
+        
+        return AnnotatedDocument(
+            document_id=res['paper_id'],
+            text=res['full_text'],
+            extractions=aligned_extractions
+        )
+    except Exception as e:
+        # In case of catastrophic failure in the worker
+        # Return a minimal valid document or re-raise
+        # Returning minimal doc to match expected interface
+        return AnnotatedDocument(
+            document_id=res.get('paper_id', 'unknown'),
+            text=res.get('full_text', ''),
+            extractions=[]
+        )
 
 class Visualizer:
     def __init__(self, config):
         self.output_dir = config['output_dir']
-        # Initialize aligner once
-        self.aligner = WordAligner()
+        # Aligner is now instantiated inside the worker process
 
     def create_visualization(self, results):
         """
@@ -26,52 +80,29 @@ class Visualizer:
             # Convert results to LangExtract AnnotatedDocument objects
             input_docs = []
             from tqdm import tqdm
-            for res in tqdm(results, desc="Processing & Aligning"):
-                # res keys: 'paper_id', 'full_text', 'extracted'
+            # [Modified] Multiprocessing for Alignment
+            logging.info(f"Aligning {len(results)} documents using Multiprocessing...")
+            
+            with ProcessPoolExecutor() as executor:
+                # Submit all tasks
+                future_to_doc = {executor.submit(process_single_document, res): res for res in results}
                 
-                extractions = []
-                extracted_data = res.get('extracted', {})
-                if extracted_data:
-                    for category, items in extracted_data.items():
-                        if not items: continue
-                        class_name = category.capitalize()
-                        for item in items:
-                            if not item: continue
-                            
-                            # Clean item slightly to match text easier if needed
-                            # But extractors usually return text present in source
-                            
-                            ext = Extraction(
-                                extraction_class=class_name,
-                                extraction_text=item.strip()
-                            )
-                            extractions.append(ext)
-                
-                # Perform Alignment
-                # align_extractions expects (extractions, source_text) or similar.
-                # Use list of extractions.
-                if extractions:
+                for future in tqdm(as_completed(future_to_doc), total=len(results), desc="Processing & Aligning"):
                     try:
-                        # align_extractions expects extraction_groups (Sequence[Sequence[Extraction]])
-                        # We wrap our single list of extractions as one group
-                        aligned_groups = self.aligner.align_extractions(
-                            extraction_groups=[extractions], 
-                            source_text=res['full_text']
-                        )
-                        # Flatten the groups (we passed 1 group, we get back groups)
-                        aligned_extractions = list(chain.from_iterable(aligned_groups))
+                        doc = future.result()
+                        input_docs.append(doc)
                     except Exception as e:
-                        logging.warning(f"Alignment failed for doc {res['paper_id']}: {e}")
-                        aligned_extractions = extractions # Fallback to unaligned
-                else:
-                    aligned_extractions = []
-
-                doc = AnnotatedDocument(
-                    document_id=res['paper_id'],
-                    text=res['full_text'],
-                    extractions=aligned_extractions
-                )
-                input_docs.append(doc)
+                        logging.error(f"Error processing document: {e}")
+            
+            # [Added] Sort documents by ID (e.g., Paper_1, Paper_2, Paper_10)
+            def get_sort_key(doc):
+                try:
+                    # Assumes format "Paper_123"
+                    return int(str(doc.document_id).split('_')[-1])
+                except (ValueError, IndexError):
+                    return str(doc.document_id)
+            
+            input_docs.sort(key=get_sort_key)
 
             # Save the results to a JSONL file
             logging.info(f"Saving {len(input_docs)} annotated documents to {jsonl_path}...")

@@ -73,6 +73,9 @@ LLMs extract text strings, but visualization requires precise **character interv
 
 - **WordAligner**: The system uses `langextract.resolver.WordAligner` to map extracted strings back to the source text.
 - **Fuzzy Matching**: It employs both exact matching and fuzzy matching (using `difflib`) to handle minor discrepancies (like whitespace or punctuation changes) between the LLM output and the original text.
+- **Multiprocessing Optimization**:
+  - **Problem**: Fuzzy matching is computationally expensive, making sequential processing slow for large datasets.
+  - **Solution**: The alignment process uses `ProcessPoolExecutor` to parallelize work across all available CPU cores, providing significant speed improvements (e.g., ~6-7x boost on 8-core systems).
 
 #### B. Multi-Document Dashboard Generation
 
@@ -82,9 +85,6 @@ Since the base library only visualizes single documents, the system implements a
 2. **Dashboard Construction**: Creates a master `graph_visualization.html` containing:
     - A **Sidebar** listing all 119+ papers with search functionality.
     - An **IFrame** that dynamically loads the individual page corresponding to the selected paper.
-
-<img width="3014" height="1394" alt="image" src="https://github.com/user-attachments/assets/55e9ca38-038b-4e4c-bb52-3214386171c2" />
-
 
 ## File Structure
 

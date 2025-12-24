@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span> <span class="lx-label" style="background-color:#FEF0C3;">Purpose</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Purpose</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">Patent citation network analysis</span> is a useful method of identifying the knowledge flow of <span class="lx-highlight" data-idx="1" style="background-color:#FEF0C3;">a technology from one country, institution or corporate to another. Whereas patent citation analysis involves statistical study of citations; patent citation network analysis involves the study of network and its different aspectsidentical to the parameters applied in the study of social network analysis. In the current research paper we have formed <span class="lx-highlight" data-idx="2" style="background-color:#C8E6C9;">patent citation network from the rough data available for patents. Study focuses on the growth and advancement of &#x27;Information and Communication technology&#x27; patents in India.</span> The scope of study focuses on patents which are filed in Indian Patent Office by the Indian assignees.</span>
+    <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">Patent citation network analysis is</span> a useful method of identifying the knowledge flow of a technology from one country, institution or corporate to another. Whereas patent citation analysis involves statistical study of citations; patent citation network analysis involves the study of network and its different aspectsidentical <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">to</span> the parameters applied in the study of social network analysis. In the current research paper we have formed patent citation network from the rough data available for patents. Study focuses on the growth and advancement of &#x27;Information and Communication technology&#x27; patents in India. The scope of study focuses on patents which are filed in Indian Patent Office by the Indian assignees.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,19 +114,19 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="2" value="0"
+             min="0" max="1" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/3</span> |
-      Pos <span id="posInfo">[0-32]</span>
+      Entity <span id="entityInfo">1/2</span> |
+      Pos <span id="posInfo">[0-35]</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Background", "text": "Patent citation network analysis identifies knowledge flow of technologies across entities.", "color": "#D2E3FC", "startPos": 0, "endPos": 32, "beforeText": "", "extractionText": "Patent citation network analysis", "afterText": " is a useful method of identifying the knowledge flow of a technology from one country, institution or corporate to another. Whereas patent citation a", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Purpose", "text": "Construct a patent citation network for ICT patents in India.", "color": "#FEF0C3", "startPos": 89, "endPos": 615, "beforeText": "Patent citation network analysis is a useful method of identifying the knowledge flow of ", "extractionText": "a technology from one country, institution or corporate to another. Whereas patent citation analysis involves statistical study of citations; patent citation network analysis involves the study of network and its different aspectsidentical to the parameters applied in the study of social network analysis. In the current research paper we have formed patent citation network from the rough data available for patents. Study focuses on the growth and advancement of &#x27;Information and Communication technology&#x27; patents in India.", "afterText": " The scope of study focuses on patents which are filed in Indian Patent Office by the Indian assignees.", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Methodology", "text": "Collect raw patent data for Indian assignees.", "color": "#C8E6C9", "startPos": 441, "endPos": 718, "beforeText": "rk and its different aspectsidentical to the parameters applied in the study of social network analysis. In the current research paper we have formed ", "extractionText": "patent citation network from the rough data available for patents. Study focuses on the growth and advancement of &#x27;Information and Communication technology&#x27; patents in India. The scope of study focuses on patents which are filed in Indian Patent Office by the Indian assignees.", "afterText": "", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Background", "text": "Patent citation network analysis is used to identify knowledge flow across countries, institutions, or corporations.", "color": "#D2E3FC", "startPos": 0, "endPos": 35, "beforeText": "", "extractionText": "Patent citation network analysis is", "afterText": " a useful method of identifying the knowledge flow of a technology from one country, institution or corporate to another. Whereas patent citation anal", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Purpose", "text": "To examine the growth and advancement of ICT patents filed by Indian assignees in the Indian Patent Office.", "color": "#C8E6C9", "startPos": 329, "endPos": 331, "beforeText": "n analysis involves statistical study of citations; patent citation network analysis involves the study of network and its different aspectsidentical ", "extractionText": "to", "afterText": " the parameters applied in the study of social network analysis. In the current research paper we have formed patent citation network from the rough d", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

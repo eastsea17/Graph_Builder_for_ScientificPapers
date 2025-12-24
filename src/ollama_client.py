@@ -16,14 +16,15 @@ class OllamaClient:
         
         logging.info(f"Initialized OllamaClient with model: {self.model}")
 
-    def generate(self, prompt, system_prompt=None):
+    def generate(self, prompt, system_prompt=None, json_format=True):
         try:
             messages = []
             if system_prompt:
                 messages.append({'role': 'system', 'content': system_prompt})
             messages.append({'role': 'user', 'content': prompt})
 
-            response = self.client.chat(model=self.model, messages=messages, format='json')
+            fmt = 'json' if json_format else ''
+            response = self.client.chat(model=self.model, messages=messages, format=fmt)
             return response['message']['content']
         except Exception as e:
             logging.error(f"Error generating response from Ollama: {e}")

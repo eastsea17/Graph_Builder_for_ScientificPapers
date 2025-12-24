@@ -1,40 +1,131 @@
-
 import pandas as pd
 import os
-import glob
-from itertools import combinations
 import numpy as np
 import logging
-from ollama_client import OllamaClient
+from collections import defaultdict
+from ollama_client import OllamaClient # Fixed import path
+import networkx as nx  # 군집화(Connected Components)를 위해 사용
+
+class EntityResolver:
+    """
+    유사한 엔티티를 찾아 하나의 정규화된 이름(Canonical Name)으로 병합하는 클래스
+    """
+    def __init__(self, client: OllamaClient, threshold=0.85):
+        self.client = client
+        self.threshold = threshold
+        self.cache = {} # Embedding cache
+
+    def resolve(self, entities: list, entity_type: str) -> dict:
+        """
+        Input: ['CNN', 'ConvNet', 'SVM']
+        Output: {'CNN': 'Convolutional Neural Network', 'ConvNet': 'Convolutional Neural Network', 'SVM': 'SVM'}
+        """
+        unique_entities = list(set([e.strip() for e in entities if e.strip()]))
+        if not unique_entities:
+            return {}
+        
+        logging.info(f"Resolving {len(unique_entities)} {entity_type} entities...")
+
+        # 1. Embeddings 계산
+        embeddings = {}
+        valid_entities = []
+        for text in unique_entities:
+            emb = self.client.embed(text)
+            if emb:
+                embeddings[text] = np.array(emb)
+                valid_entities.append(text)
+        
+        if not valid_entities:
+            return {e: e for e in unique_entities}
+
+        # 2. Similarity Matrix 계산
+        matrix = np.array([embeddings[e] for e in valid_entities])
+        # Normalize
+        norm = np.linalg.norm(matrix, axis=1, keepdims=True)
+        norm[norm == 0] = 1e-10
+        normalized_matrix = matrix / norm
+        cosine_sim = np.dot(normalized_matrix, normalized_matrix.T)
+
+        # 3. Graph 기반 군집화 (NetworkX 사용)
+        g = nx.Graph()
+        g.add_nodes_from(valid_entities)
+        
+        # 임계값 넘는 쌍 연결
+        rows, cols = np.where(np.triu(cosine_sim, k=1) > self.threshold)
+        for r, c in zip(rows, cols):
+            g.add_edge(valid_entities[r], valid_entities[c])
+
+        # 4. 각 군집(Cluster)별 정규화 수행
+        mapping = {}
+        
+        # 연결된 컴포넌트(유사한 엔티티 그룹) 찾기
+        clusters = list(nx.connected_components(g))
+        
+        logging.info(f"Found {len(clusters)} unique semantic clusters.")
+        
+        from tqdm import tqdm
+        for cluster in tqdm(clusters, desc=f"Resolving {entity_type} clusters"):
+            cluster_list = list(cluster)
+            
+            if len(cluster_list) == 1:
+                # 유사한 게 없으면 그대로 사용
+                mapping[cluster_list[0]] = cluster_list[0]
+            else:
+                # 유사한 게 여러 개면 LLM에게 표준 용어 질문
+                canonical = self._get_canonical_name(cluster_list, entity_type)
+                for item in cluster_list:
+                    mapping[item] = canonical
+                    
+        return mapping
+
+    def _get_canonical_name(self, terms, entity_type):
+        # 이미 처리한 적 있으면 캐시 사용 (선택 사항)
+        # LLM에게 가장 일반적인 용어 선택 요청
+        prompt = (
+            f"You are a scientific terminology expert. I have a list of similar terms referring to the same concept in {entity_type}.\n"
+            f"Terms: {terms}\n"
+            "Identify the single most standard, full, and canonical scientific name from this list (or a better standard name if obvious).\n"
+            "Return ONLY the canonical name string. No explanation."
+        )
+        
+        try:
+            # LLM 호출 (JSON 모드 아님, 단순 텍스트)
+            # Pass json_format=False to force text output
+            response = self.client.generate(prompt, json_format=False)
+            canonical = response.strip().strip('"').strip("'")
+            # 만약 이상한 응답이면 리스트 중 가장 긴 것 or 첫 번째 것 선택
+            if len(canonical) > 50 or '\n' in canonical:
+                return sorted(terms, key=len, reverse=True)[0]
+            return canonical
+        except:
+            return terms[0]
+
 
 class GraphBuilder:
     def __init__(self, config):
         self.config = config
         self.output_dir = config['output_dir']
-        self.similarity_enabled = config['similarity']['enabled']
-        self.similarity_threshold = config['similarity']['threshold']
-        if self.similarity_enabled:
-            self.client = OllamaClient(config)
+        self.client = OllamaClient(config)
+        
+        # Config에서 해상도(Resolution) 활성화 여부 확인 (기본값 True)
+        self.resolution_enabled = config.get('graph', {}).get('entity_resolution', True)
+        self.resolver = EntityResolver(self.client, threshold=0.90) if self.resolution_enabled else None
 
     def build_graph(self, extraction_results):
         os.makedirs(self.output_dir, exist_ok=True)
         
         papers = []
-        relations = []
+        raw_relations = []
         
-        # Entity collections: { text: { 'id': text, 'label': text, 'type': TYPE } }
-        # Using text as ID for simplicity as per example
-        entities_background = {}
-        entities_purpose = {}
-        entities_methodology = {}
-        entities_results = {}
+        # 1. 모든 엔티티 수집 (타입별)
+        all_entities_by_type = defaultdict(list)
         
-        all_entities_text = [] # For similarity
+        logging.info(f"Building graph from {len(extraction_results)} records...")
         
+        # 논문 노드 먼저 생성
         for record in extraction_results:
             p_id = record['paper_id']
             full_text = record['full_text']
-            # Label is truncated text
             p_label = (full_text[:50] + '...') if len(full_text) > 50 else full_text
             
             papers.append({
@@ -44,113 +135,80 @@ class GraphBuilder:
                 'Full_Text': full_text
             })
             
-            ext = record['extracted']
-            if not ext:
-                continue
-                
-            # Process each category
-            # Background
-            for item in ext.get('background', []):
-                clean_item = item.strip()
-                if not clean_item: continue
-                entities_background[clean_item] = {'Id': clean_item, 'Label': clean_item, 'Type': 'Background'}
-                relations.append({'Source': p_id, 'Target': clean_item, 'Type': 'HAS_BACKGROUND', 'Weight': 1.0})
-                all_entities_text.append({'text': clean_item, 'type': 'Background'})
+            ext = record['extracted'] # 이미 dict 형태 (Pydantic model_dump 결과)
+            if not ext: continue
 
-            # Purpose
-            for item in ext.get('purpose', []):
-                clean_item = item.strip()
-                if not clean_item: continue
-                entities_purpose[clean_item] = {'Id': clean_item, 'Label': clean_item, 'Type': 'Purpose'}
-                relations.append({'Source': p_id, 'Target': clean_item, 'Type': 'HAS_PURPOSE', 'Weight': 1.0})
-                all_entities_text.append({'text': clean_item, 'type': 'Purpose'})
+            for cat in ['background', 'purpose', 'methodology', 'results']:
+                items = ext.get(cat, [])
+                for item in items:
+                    if item:
+                        all_entities_by_type[cat].append(item)
+                        # 임시 관계 저장 (나중에 정규화된 이름으로 교체)
+                        raw_relations.append({
+                            'Source': p_id, 
+                            'Original_Target': item, 
+                            'Rel_Type': f'HAS_{cat.upper()}'
+                        })
 
-            # Methodology
-            for item in ext.get('methodology', []):
-                clean_item = item.strip()
-                if not clean_item: continue
-                entities_methodology[clean_item] = {'Id': clean_item, 'Label': clean_item, 'Type': 'Methodology'}
-                relations.append({'Source': p_id, 'Target': clean_item, 'Type': 'HAS_METHODOLOGY', 'Weight': 1.0})
-                all_entities_text.append({'text': clean_item, 'type': 'Methodology'})
-
-            # Results
-            for item in ext.get('results', []):
-                clean_item = item.strip()
-                if not clean_item: continue
-                entities_results[clean_item] = {'Id': clean_item, 'Label': clean_item, 'Type': 'Results'}
-                relations.append({'Source': p_id, 'Target': clean_item, 'Type': 'HAS_RESULTS', 'Weight': 1.0})
-                all_entities_text.append({'text': clean_item, 'type': 'Results'})
-
-        # Save Papers
-        pd.DataFrame(papers).to_csv(os.path.join(self.output_dir, 'papers.csv'), index=False)
+        # 2. Entity Resolution 수행 (유사 엔티티 병합)
+        # Mapping: { 'Original Text' : 'Canonical ID' }
+        global_mapping = {}
         
-        # Save Entities
-        pd.DataFrame(list(entities_background.values())).to_csv(os.path.join(self.output_dir, 'research_background.csv'), index=False)
-        pd.DataFrame(list(entities_purpose.values())).to_csv(os.path.join(self.output_dir, 'research_purpose.csv'), index=False)
-        pd.DataFrame(list(entities_methodology.values())).to_csv(os.path.join(self.output_dir, 'research_methodology.csv'), index=False)
-        pd.DataFrame(list(entities_results.values())).to_csv(os.path.join(self.output_dir, 'research_resultsandeffects.csv'), index=False)
-        
-        # Similarity
-        if self.similarity_enabled and len(all_entities_text) > 0:
-            print("Computing similarities (this might take a while)...")
-            # Get unique texts to embed
-            unique_texts = list(set([x['text'] for x in all_entities_text]))
-            
-            # Embed all unique texts
-            # We can use batching if the list is huge, but let's do simple loop for now
-            embeddings = {}
-            for text in unique_texts:
-                emb = self.client.embed(text)
-                if emb:
-                    embeddings[text] = emb
-            
-            # Compute similarity
-            # Create a matrix
-            text_list = list(embeddings.keys())
-            if len(text_list) > 1:
-                mat = np.array([embeddings[t] for t in text_list])
-                
-                # Normalize
-                norm = np.linalg.norm(mat, axis=1, keepdims=True)
-                # Avoid div by zero
-                norm[norm == 0] = 1.0
-                normalized_mat = mat / norm
-                
-                sim_matrix = np.dot(normalized_mat, normalized_mat.T)
-                
-                # Extract pairs > threshold
-                # Only upper triangle to avoid duplicates
-                
-                # --- Auto-thresholding Logic ---
-                # Extract values from upper triangle (excluding diagonal)
-                upper_tri_indices = np.triu_indices_from(sim_matrix, k=1)
-                upper_tri_values = sim_matrix[upper_tri_indices]
-                
-                active_threshold = self.similarity_threshold
-                mode = self.config['similarity'].get('mode', 'fixed')
-                
-                if mode == 'auto' and len(upper_tri_values) > 0:
-                    percentile = self.config['similarity'].get('top_percentile', 95)
-                    # Calculate dynamic threshold
-                    dynamic_threshold = np.percentile(upper_tri_values, percentile)
-                    print(f"Dynamic threshold set to: {dynamic_threshold:.4f} (Top {100-percentile}%)")
-                    active_threshold = dynamic_threshold
-                    
-                # Use numpy where with the active threshold
-                rows, cols = np.where(np.triu(sim_matrix, k=1) > active_threshold)
-                # -------------------------------
-                
-                for r, c in zip(rows, cols):
-                    score = float(sim_matrix[r, c])
-                    src = text_list[r]
-                    tgt = text_list[c]
-                    relations.append({
-                        'Source': src,
-                        'Target': tgt,
-                        'Type': 'RELATED_TO',
-                        'Weight': score
-                    })
+        if self.resolution_enabled:
+            logging.info("--- Starting Entity Resolution ---")
+            for cat, items in all_entities_by_type.items():
+                if not items: continue
+                # 카테고리별로 리졸브 수행 (Methodology끼리, Result끼리 섞이지 않도록)
+                cat_map = self.resolver.resolve(items, cat)
+                global_mapping.update(cat_map)
+        else:
+            # Resolution 안 하면 그대로 매핑
+            for items in all_entities_by_type.values():
+                for item in items:
+                    global_mapping[item] = item
 
-        # Save Relations
-        pd.DataFrame(relations).to_csv(os.path.join(self.output_dir, 'relations.csv'), index=False)
-        print("Graph construction complete.")
+        # 3. 최종 노드 및 엣지 생성
+        final_entities = {} # { 'Canonical Name': {Node Data} }
+        final_relations = []
+
+        # 엔티티 노드 생성
+        for original_text, canonical_name in global_mapping.items():
+            # 어떤 카테고리인지 역추적 (단순화를 위해 마지막 발견된 타입 사용하거나 복합 타입 처리)
+            # 여기서는 Node 생성 시점 중복 제거
+            if canonical_name not in final_entities:
+                final_entities[canonical_name] = {
+                    'Id': canonical_name,
+                    'Label': canonical_name,
+                    'Type': 'Entity' # 혹은 세부 타입
+                }
+        
+        # 관계 엣지 생성 (Source -> Canonical Target)
+        for rel in raw_relations:
+            orig = rel['Original_Target']
+            if orig in global_mapping:
+                canonical = global_mapping[orig]
+                final_relations.append({
+                    'Source': rel['Source'],
+                    'Target': canonical,
+                    'Type': rel['Rel_Type'],
+                    'Weight': 1.0
+                })
+
+        # 4. 파일 저장
+        logging.info("Saving graph nodes and edges...")
+        if papers:
+             pd.DataFrame(papers).to_csv(os.path.join(self.output_dir, 'papers.csv'), index=False)
+        else:
+             logging.warning("No papers processed.")
+             
+        if final_entities:
+            pd.DataFrame(list(final_entities.values())).to_csv(os.path.join(self.output_dir, 'entities.csv'), index=False)
+        else:
+            logging.warning("No entities found.")
+            
+        if final_relations:
+            pd.DataFrame(final_relations).to_csv(os.path.join(self.output_dir, 'relations.csv'), index=False)
+        else:
+            logging.warning("No relations found.")
+        
+        logging.info("Graph construction complete with Entity Resolution.")

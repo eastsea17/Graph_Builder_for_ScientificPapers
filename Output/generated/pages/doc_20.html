@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span> <span class="lx-label" style="background-color:#FEF0C3;">Purpose</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">Identifying technology convergence is</span> getting harder, especially in fast-evolving <span class="lx-highlight" data-idx="1" style="background-color:#FEF0C3;">and cross-technological fields. On the other side, natural language processing and network analysis researchers is to provide a novel method for mapping technologies and their relations over time, in order to identify dynamic patterns of convergence and to test it on the C4ISTAR field, a defense-related cross-technological field.</span> The methodology automatically extracts technologies from a corpus of scientific papers, policy documents, websites, and company reports using Named Entity Recognition approaches. These technologies are then retrieved from the second corpus of more than 300 thousand patents related to the C4ISTAR domain, measuring their cooccurrences over time. Finally, using the <span class="lx-highlight" data-idx="2" style="background-color:#C8E6C9;">time-varying network analysis, we were able to identify and measure the pattern of technological convergence.</span>
+    <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">Identifying technology convergence is</span> getting harder, especially in fast-evolving and cross-technological fields. On the other side, natural language processing and network analysis researchers is to provide a novel method for mapping technologies and their relations over time, in order to identify dynamic patterns of convergence and to test it on the C4ISTAR field, a defense-related cross-technological field. The methodology <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">automatically</span> extracts technologies from a corpus of scientific papers, policy documents, websites, and company reports using Named Entity Recognition approaches. These technologies are then retrieved from the second corpus of more than 300 thousand patents related to the C4ISTAR domain, measuring their cooccurrences over time. Finally, using the time-varying network analysis, we were able to identify and measure the pattern of technological convergence.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,11 +114,11 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="2" value="0"
+             min="0" max="1" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/3</span> |
+      Entity <span id="entityInfo">1/2</span> |
       Pos <span id="posInfo">[0-37]</span>
     </div>
   </div>
@@ -126,7 +126,7 @@
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Background", "text": "Identifying technology convergence is increasingly difficult in fast\u2011evolving, cross\u2011technological domains.", "color": "#D2E3FC", "startPos": 0, "endPos": 37, "beforeText": "", "extractionText": "Identifying technology convergence is", "afterText": " getting harder, especially in fast-evolving and cross-technological fields. On the other side, natural language processing and network analysis resea", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Purpose", "text": "Apply and evaluate the method on the C4ISTAR defense\u2011related field.", "color": "#FEF0C3", "startPos": 82, "endPos": 413, "beforeText": "Identifying technology convergence is getting harder, especially in fast-evolving ", "extractionText": "and cross-technological fields. On the other side, natural language processing and network analysis researchers is to provide a novel method for mapping technologies and their relations over time, in order to identify dynamic patterns of convergence and to test it on the C4ISTAR field, a defense-related cross-technological field.", "afterText": " The methodology automatically extracts technologies from a corpus of scientific papers, policy documents, websites, and company reports using Named E", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Methodology", "text": "Apply time\u2011varying network analysis to detect and measure patterns of technological convergence.", "color": "#C8E6C9", "startPos": 779, "endPos": 888, "beforeText": "d from the second corpus of more than 300 thousand patents related to the C4ISTAR domain, measuring their cooccurrences over time. Finally, using the ", "extractionText": "time-varying network analysis, we were able to identify and measure the pattern of technological convergence.", "afterText": "", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Background", "text": "Identifying technology convergence is increasingly difficult in fast\u2011evolving, cross\u2011technological domains.", "color": "#D2E3FC", "startPos": 0, "endPos": 37, "beforeText": "", "extractionText": "Identifying technology convergence is", "afterText": " getting harder, especially in fast-evolving and cross-technological fields. On the other side, natural language processing and network analysis resea", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Methodology", "text": "Automatically extract technology terms from scientific papers, policy documents, websites, and company reports using Named Entity Recognition.", "color": "#C8E6C9", "startPos": 430, "endPos": 443, "beforeText": "n order to identify dynamic patterns of convergence and to test it on the C4ISTAR field, a defense-related cross-technological field. The methodology ", "extractionText": "automatically", "afterText": " extracts technologies from a corpus of scientific papers, policy documents, websites, and company reports using Named Entity Recognition approaches. ", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

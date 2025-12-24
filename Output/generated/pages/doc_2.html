@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Purpose</span> <span class="lx-label" style="background-color:#C8E6C9;">Results</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Purpose</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    Because of the remarkable developments in robotics in recent years, technological convergence has been active in this area. We focused on <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#C8E6C9;">finding <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">patterns of convergence within robot technology using network analysis of patents in both the USPTO and KIPO.</span> To identify the variables that affect convergence, we used quadratic assignment procedures (QAP). From our analysis, we observed <span class="lx-highlight" data-idx="2" style="background-color:#C8E6C9;">the patent network ecology related to convergence and found technologies that have great potential to converge with other robotics technologies.</span> The results of our study are expected to contribute to setting up convergence based R&amp;amp;D policies for robotics, which can lead new innovation.</span>
+    Because of the remarkable developments in robotics in recent years, technological convergence has been active in this area. We focused on finding <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">patterns of convergence within robot technology using network analysis of patents in both the USPTO and KIPO.</span> To identify the variables that affect convergence, we used quadratic assignment procedures (QAP). From our analysis, we observed the patent network ecology related to convergence and found technologies that have great potential to converge with other robotics technologies. The results of our study are expected to contribute to setting up convergence based R&amp;amp;D policies for robotics, which can lead new innovation.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,11 +114,11 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="2" value="0"
+             min="0" max="0" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/3</span> |
+      Entity <span id="entityInfo">1/1</span> |
       Pos <span id="posInfo">[146-255]</span>
     </div>
   </div>
@@ -126,7 +126,7 @@
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Results", "text": "Findings can inform convergence\u2011based R&D policies for robotics innovation.", "color": "#C8E6C9", "startPos": 138, "endPos": 675, "beforeText": "Because of the remarkable developments in robotics in recent years, technological convergence has been active in this area. We focused on ", "extractionText": "finding patterns of convergence within robot technology using network analysis of patents in both the USPTO and KIPO. To identify the variables that affect convergence, we used quadratic assignment procedures (QAP). From our analysis, we observed the patent network ecology related to convergence and found technologies that have great potential to converge with other robotics technologies. The results of our study are expected to contribute to setting up convergence based R&amp;amp;D policies for robotics, which can lead new innovation.", "afterText": "", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Purpose", "text": "Identify patterns of convergence within robot technology using patent data.", "color": "#D2E3FC", "startPos": 146, "endPos": 255, "beforeText": "Because of the remarkable developments in robotics in recent years, technological convergence has been active in this area. We focused on finding ", "extractionText": "patterns of convergence within robot technology using network analysis of patents in both the USPTO and KIPO.", "afterText": " To identify the variables that affect convergence, we used quadratic assignment procedures (QAP). From our analysis, we observed the patent network e", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Results", "text": "Mapped the patent network ecology related to convergence.", "color": "#C8E6C9", "startPos": 385, "endPos": 529, "beforeText": " the USPTO and KIPO. To identify the variables that affect convergence, we used quadratic assignment procedures (QAP). From our analysis, we observed ", "extractionText": "the patent network ecology related to convergence and found technologies that have great potential to converge with other robotics technologies.", "afterText": " The results of our study are expected to contribute to setting up convergence based R&amp;amp;D policies for robotics, which can lead new innovation.", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Purpose", "text": "Identify patterns of convergence within robot technology.", "color": "#D2E3FC", "startPos": 146, "endPos": 255, "beforeText": "Because of the remarkable developments in robotics in recent years, technological convergence has been active in this area. We focused on finding ", "extractionText": "patterns of convergence within robot technology using network analysis of patents in both the USPTO and KIPO.", "afterText": " To identify the variables that affect convergence, we used quadratic assignment procedures (QAP). From our analysis, we observed the patent network e", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

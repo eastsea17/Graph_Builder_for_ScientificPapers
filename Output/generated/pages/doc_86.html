@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Purpose</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Purpose</span> <span class="lx-label" style="background-color:#C8E6C9;">Results</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    Purpose – The purpose of this paper is to <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">analyze the network structure of technology</span> in and between different fields, as well as the evolution of their relations. Design/methodology/approach – Using the patent data in Derwent Innovation Index (DII) from 1991 to 2010, this paper analyzes the co-classification of Derwent Manual Code (DMC) of patents in all technology fields. Large-scaled co-classification matrices are employed to generate the DMC co-classification networks. In addition, analyses are pursued at different levels of aggregation in four five-year windows: 1991-1995, 1996-2000, 2001-2005 and 2006-2010. Using Girvan-Newman algorithm in the clustering process, the structure transformations over time are detected. Findings – The paper identifies the key technological knowledge in certain fields and finds out how different technological fields are connected and integrated. What is more, the dynamic evolution between networks in different time periods reveals the trend of generic technology development in the macroscopic level. Originality/value – The paper investigates a large quantity of data – all the patent data in DII from 1991 to 2010 in this paper. The paper applies Girvan-Newman algorithm in the co-classification analysis and uses co-classification networks to reveal technology network structures. Evolution coincident with the realistic technological shifts can be observed.
+    Purpose – The purpose of this paper is to <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">analyze the network structure of technology</span> in and between different fields, as well as the evolution of their relations. Design/methodology/approach – Using the patent data in Derwent Innovation Index (DII) from 1991 to 2010, this paper analyzes the co-classification of Derwent Manual Code (DMC) of patents in all technology fields. Large-scaled co-classification matrices are employed to generate the DMC co-classification networks. In addition, analyses are pursued at different levels of aggregation in four five-year windows: 1991-1995, 1996-2000, 2001-2005 and 2006-2010. Using Girvan-Newman algorithm in the clustering process, the structure transformations over time are detected. Findings – The paper identifies the <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">key technological knowledge in certain fields and finds out how different technological fields are connected and integrated.</span> What is more, the dynamic evolution between networks in different time periods reveals the trend of generic technology development in the macroscopic level. Originality/value – The paper investigates a large quantity of data – all the patent data in DII from 1991 to 2010 in this paper. The paper applies Girvan-Newman algorithm in the co-classification analysis and uses co-classification networks to reveal technology network structures. Evolution coincident with the realistic technological shifts can be observed.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,11 +114,11 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="0" value="0"
+             min="0" max="1" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/1</span> |
+      Entity <span id="entityInfo">1/2</span> |
       Pos <span id="posInfo">[42-85]</span>
     </div>
   </div>
@@ -126,7 +126,7 @@
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Purpose", "text": "Analyze the network structure of technology within and between different fields.", "color": "#D2E3FC", "startPos": 42, "endPos": 85, "beforeText": "Purpose \u2013 The purpose of this paper is to ", "extractionText": "analyze the network structure of technology", "afterText": " in and between different fields, as well as the evolution of their relations. Design/methodology/approach \u2013 Using the patent data in Derwent Innovati", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Purpose", "text": "Analyze the network structure of technology across different fields.", "color": "#D2E3FC", "startPos": 42, "endPos": 85, "beforeText": "Purpose \u2013 The purpose of this paper is to ", "extractionText": "analyze the network structure of technology", "afterText": " in and between different fields, as well as the evolution of their relations. Design/methodology/approach \u2013 Using the patent data in Derwent Innovati", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Results", "text": "Identified key technological knowledge areas and how different fields are connected and integrated.", "color": "#C8E6C9", "startPos": 768, "endPos": 892, "beforeText": "0. Using Girvan-Newman algorithm in the clustering process, the structure transformations over time are detected. Findings \u2013 The paper identifies the ", "extractionText": "key technological knowledge in certain fields and finds out how different technological fields are connected and integrated.", "afterText": " What is more, the dynamic evolution between networks in different time periods reveals the trend of generic technology development in the macroscopic", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

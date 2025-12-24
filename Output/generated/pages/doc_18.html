@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Purpose</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    This article presents <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">analysis of</span> data from scientific articles and patents to identify the evolving trends and underlying topics in research on humanoid robots. We used topic modelling based on latent Dirichlet allocation analysis to identify underlying topics in sub-areas in the field. We also used <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">social network analysis to measure the centrality indices of publication keywords to detect important and influential sub-areas and used co-occurrence analysis of keywords to visualise relationships among subfields.</span> The research result is useful to identify evolving topics and areas of current focus in the field of humanoid technology. The results contribute to identify valuable research patterns from publications and to increase understanding of the hidden knowledge themes that are revealed by patents.
+    This article presents analysis of data from scientific articles and patents to identify the evolving trends and underlying topics in research on humanoid robots. We used topic modelling based on latent Dirichlet allocation analysis to identify underlying topics in sub-areas in the field. We also used social network analysis to measure the centrality indices of publication keywords to detect important and influential sub-areas and used co-occurrence analysis of keywords to visualise relationships among subfields. The research result is useful to <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">identify evolving topics and</span> areas of current focus in the field of humanoid technology. The results contribute to identify valuable research patterns from publications and to increase understanding of the hidden knowledge themes that are revealed by patents.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,19 +114,19 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="1" value="0"
+             min="0" max="0" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/2</span> |
-      Pos <span id="posInfo">[22-33]</span>
+      Entity <span id="entityInfo">1/1</span> |
+      Pos <span id="posInfo">[551-579]</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Background", "text": "Analysis of scientific articles and patents to track evolving trends in humanoid robot research.", "color": "#D2E3FC", "startPos": 22, "endPos": 33, "beforeText": "This article presents ", "extractionText": "analysis of", "afterText": " data from scientific articles and patents to identify the evolving trends and underlying topics in research on humanoid robots. We used topic modelli", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Methodology", "text": "Performed social network analysis to compute centrality indices of publication keywords.", "color": "#C8E6C9", "startPos": 302, "endPos": 517, "beforeText": "d robots. We used topic modelling based on latent Dirichlet allocation analysis to identify underlying topics in sub-areas in the field. We also used ", "extractionText": "social network analysis to measure the centrality indices of publication keywords to detect important and influential sub-areas and used co-occurrence analysis of keywords to visualise relationships among subfields.", "afterText": " The research result is useful to identify evolving topics and areas of current focus in the field of humanoid technology. The results contribute to i", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Purpose", "text": "Identify evolving topics and sub\u2011areas of focus within humanoid robot research.", "color": "#D2E3FC", "startPos": 551, "endPos": 579, "beforeText": "nt and influential sub-areas and used co-occurrence analysis of keywords to visualise relationships among subfields. The research result is useful to ", "extractionText": "identify evolving topics and", "afterText": " areas of current focus in the field of humanoid technology. The results contribute to identify valuable research patterns from publications and to in", "attributesHtml": "<div><strong>class:</strong> Purpose</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;
