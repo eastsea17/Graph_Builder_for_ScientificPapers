@@ -1,6 +1,6 @@
 # **Scientific Paper Info Extractor & Graph Builder (Advanced)**
 
-This tool extracts structured information (Background, Purpose, Methodology, Results) from paper abstracts using Ollama LLMs, constructs a **Knowledge Graph** through semantic analysis, and generates an interactive multi-document visualization dashboard.
+This tool extracts structured information (Background, Purpose, Methodology, Results) from paper abstracts using Ollama LLMs, constructs a **Node/Edge Lists of Knowledge Graph** through semantic analysis, and generates an interactive multi-document visualization dashboard.
 
 Recent updates include **Pydantic-based strict data validation**, **Advanced Entity Resolution**, and **Multiprocessing-based high-performance visualization**.
 
@@ -51,6 +51,10 @@ Results are saved in Output/generated/:
 * **Visualization**:  
   * graph\_visualization.html: **Main Dashboard**. Open this in your browser to explore the papers and graph.  
   * extraction\_results.jsonl: The raw extracted and aligned data.
+
+## **Visualization Example**
+
+![Graph Visualization Example](graph_visualization_example.png)
 
 ## **System Logic & Algorithms**
 

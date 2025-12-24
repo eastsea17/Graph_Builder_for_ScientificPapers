@@ -1,6 +1,6 @@
 # **Scientific Paper Info Extractor & Graph Builder (Advanced)**
 
-이 도구는 과학 논문 초록(Abstract)에서 구조화된 정보(배경, 목적, 방법론, 결과)를 추출하고, 의미론적(Semantic) 분석을 통해 \*\*지식 그래프(Knowledge Graph)\*\*를 구축하며, 이를 대화형 대시보드로 시각화하는 파이프라인입니다.
+이 도구는 과학 논문 초록(Abstract)에서 구조화된 정보(배경, 목적, 방법론, 결과)를 추출하고, 의미론적(Semantic) 분석을 통해 \*\*지식 그래프(Knowledge Graph)의 Node/Edge List\*\*를 구축하며, 이를 html파일로 시각화하는 파이프라인입니다.
 
 최신 업데이트를 통해 **Pydantic 기반의 엄격한 데이터 검증**, **유사 엔티티 자동 병합(Entity Resolution)**, 그리고 **멀티프로세싱 기반의 고속 시각화** 기능이 추가되었습니다.
 
@@ -48,6 +48,10 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 * **Interactive Dashboard**:  
   * graph\_visualization.html: **메인 대시보드 파일**. 브라우저에서 열어 모든 논문을 탐색할 수 있습니다.  
   * extraction\_results.jsonl: 추출 및 정렬된 원본 데이터.
+
+## **시각화 예시 (Visualization Example)**
+
+![Graph Visualization Example](graph_visualization_example.png)
 
 ## **시스템 로직 및 알고리즘**
 
