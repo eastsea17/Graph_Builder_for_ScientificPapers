@@ -104,7 +104,7 @@
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    These findings suggest that <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">closure and OAT may be equally effective in recurrent stroke prevention in patients with PFO.</span> There is an increased risk of atrial fibrillation and bleeding with closure and OAT therapy, respectively. A randomized trial is needed to identify patients who would benefit most from each strategy.
+    These findings suggest that closure and OAT may be equally effective in recurrent stroke prevention in patients with <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">PFO. There is an increased risk of atrial fibrillation and bleeding with closure and <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">OAT therapy</span>, respectively.</span> <span class="lx-highlight" data-idx="2" style="background-color:#D2E3FC;">A randomized trial is</span> needed to identify patients who would benefit most from each strategy.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,19 +114,19 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="0" value="0"
+             min="0" max="2" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/1</span> |
-      Pos <span id="posInfo">[28-121]</span>
+      Entity <span id="entityInfo">1/3</span> |
+      Pos <span id="posInfo">[117-228]</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Results", "text": "Closure and OAT appear equally effective in preventing recurrent stroke in PFO patients.", "color": "#D2E3FC", "startPos": 28, "endPos": 121, "beforeText": "These findings suggest that ", "extractionText": "closure and OAT may be equally effective in recurrent stroke prevention in patients with PFO.", "afterText": " There is an increased risk of atrial fibrillation and bleeding with closure and OAT therapy, respectively. A randomized trial is needed to identify p", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Results", "text": "PFO closure is associated with an increased risk of atrial fibrillation.", "color": "#D2E3FC", "startPos": 117, "endPos": 228, "beforeText": "These findings suggest that closure and OAT may be equally effective in recurrent stroke prevention in patients with ", "extractionText": "PFO. There is an increased risk of atrial fibrillation and bleeding with closure and OAT therapy, respectively.", "afterText": " A randomized trial is needed to identify patients who would benefit most from each strategy.", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Results", "text": "OAT therapy is associated with an increased risk of bleeding.", "color": "#D2E3FC", "startPos": 202, "endPos": 213, "beforeText": "qually effective in recurrent stroke prevention in patients with PFO. There is an increased risk of atrial fibrillation and bleeding with closure and ", "extractionText": "OAT therapy", "afterText": ", respectively. A randomized trial is needed to identify patients who would benefit most from each strategy.", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Results", "text": "A randomized trial is recommended to identify which patients benefit most from each strategy.", "color": "#D2E3FC", "startPos": 229, "endPos": 250, "beforeText": "nt stroke prevention in patients with PFO. There is an increased risk of atrial fibrillation and bleeding with closure and OAT therapy, respectively. ", "extractionText": "A randomized trial is", "afterText": " needed to identify patients who would benefit most from each strategy.", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

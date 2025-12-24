@@ -104,7 +104,7 @@
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    Bibliometry coupling is used to process bibliographic data to assert existing latent information on publication material. We apply here this technique on <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">patent data</span> gathered from the OPS web service to enhance the exploration process of patents using <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">network visualization</span>. The following will present briefly graph theory preliminaries, the gathering and transforming process on the ops base. The different networks produced will be discussed and placed in a generic economic intelligence process. Finally we present a case study using this approach to discuss the democratization of 3D printing.
+    Bibliometry <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">coupling is used to process bibliographic data to assert existing latent information on publication material.</span> We apply here <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">this</span> technique on patent data gathered from the OPS web service to enhance the exploration process of patents using network visualization. The following will present briefly graph theory preliminaries, the gathering and transforming process on the ops base. The different networks produced will be discussed and placed in a generic economic intelligence process. Finally we present a case study using this approach to discuss the democratization of 3D printing.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -119,14 +119,14 @@
     </div>
     <div class="lx-status-text">
       Entity <span id="entityInfo">1/2</span> |
-      Pos <span id="posInfo">[154-165]</span>
+      Pos <span id="posInfo">[12-121]</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Background", "text": "Patent data can be accessed via the OPS web service.", "color": "#D2E3FC", "startPos": 154, "endPos": 165, "beforeText": "iometry coupling is used to process bibliographic data to assert existing latent information on publication material. We apply here this technique on ", "extractionText": "patent data", "afterText": " gathered from the OPS web service to enhance the exploration process of patents using network visualization. The following will present briefly graph", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Background", "text": "Network visualization aids exploration of large patent corpora.", "color": "#D2E3FC", "startPos": 252, "endPos": 273, "beforeText": "blication material. We apply here this technique on patent data gathered from the OPS web service to enhance the exploration process of patents using ", "extractionText": "network visualization", "afterText": ". The following will present briefly graph theory preliminaries, the gathering and transforming process on the ops base. The different networks produc", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Background", "text": "Bibliometric coupling is used to process bibliographic data to extract latent information from publications.", "color": "#D2E3FC", "startPos": 12, "endPos": 121, "beforeText": "Bibliometry ", "extractionText": "coupling is used to process bibliographic data to assert existing latent information on publication material.", "afterText": " We apply here this technique on patent data gathered from the OPS web service to enhance the exploration process of patents using network visualizati", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Background", "text": "This technique is being applied to patent data from the OPS web service to address limitations in patent exploration.", "color": "#D2E3FC", "startPos": 136, "endPos": 140, "beforeText": "Bibliometry coupling is used to process bibliographic data to assert existing latent information on publication material. We apply here ", "extractionText": "this", "afterText": " technique on patent data gathered from the OPS web service to enhance the exploration process of patents using network visualization. The following w", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

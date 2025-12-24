@@ -100,11 +100,11 @@
 </style>
 <div class="lx-animated-wrapper lx-gif-optimized">
   <div class="lx-attributes-panel">
-    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Background</span> <span class="lx-label" style="background-color:#C8E6C9;">Methodology</span> <span class="lx-label" style="background-color:#FEF0C3;">Results</span></div>
+    <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">Methodology</span></div>
     <div id="attributesContainer"></div>
   </div>
   <div class="lx-text-window" id="textWindow">
-    The paper presents the structural characteristics of the <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">patent co</span>-ownership network in Poland for the year 2011, which was identified with the use of database administered by the Polish Patent Office. The <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">social network analysis (SNA)</span> was applied for graphics and calculation. The analysis was focused on <span class="lx-highlight" data-idx="2" style="background-color:#FEF0C3;">inter</span>-organizational and interregional level. <span class="lx-highlight" data-idx="3" style="background-color:#FEF0C3;">The research procedure</span> was also discussed.
+    The paper presents the structural characteristics of the patent co-ownership network in Poland for the year 2011, which was identified with the use <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">of database administered by the Polish Patent Office</span>. The <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">social network analysis (SNA) was applied for graphics and calculation</span>. The analysis was <span class="lx-highlight" data-idx="2" style="background-color:#D2E3FC;">focused on inter-organizational and interregional</span> level. The research procedure was also discussed.
   </div>
   <div class="lx-controls">
     <div class="lx-button-row">
@@ -114,19 +114,19 @@
     </div>
     <div class="lx-progress-container">
       <input type="range" id="progressSlider" class="lx-progress-slider"
-             min="0" max="3" value="0"
+             min="0" max="2" value="0"
              onchange="jumpToExtraction(this.value)">
     </div>
     <div class="lx-status-text">
-      Entity <span id="entityInfo">1/4</span> |
-      Pos <span id="posInfo">[57-66]</span>
+      Entity <span id="entityInfo">1/3</span> |
+      Pos <span id="posInfo">[148-200]</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    const extractions = [{"index": 0, "class": "Background", "text": "Patent co\u2011ownership network in Poland for the year 2011", "color": "#D2E3FC", "startPos": 57, "endPos": 66, "beforeText": "The paper presents the structural characteristics of the ", "extractionText": "patent co", "afterText": "-ownership network in Poland for the year 2011, which was identified with the use of database administered by the Polish Patent Office. The social net", "attributesHtml": "<div><strong>class:</strong> Background</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Methodology", "text": "Social Network Analysis (SNA) applied for visualisation and calculation of network metrics", "color": "#C8E6C9", "startPos": 206, "endPos": 235, "beforeText": " patent co-ownership network in Poland for the year 2011, which was identified with the use of database administered by the Polish Patent Office. The ", "extractionText": "social network analysis (SNA)", "afterText": " was applied for graphics and calculation. The analysis was focused on inter-organizational and interregional level. The research procedure was also d", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Results", "text": "Inter\u2011organizational and interregional connectivity patterns were identified", "color": "#FEF0C3", "startPos": 306, "endPos": 311, "beforeText": "ase administered by the Polish Patent Office. The social network analysis (SNA) was applied for graphics and calculation. The analysis was focused on ", "extractionText": "inter", "afterText": "-organizational and interregional level. The research procedure was also discussed.", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}, {"index": 3, "class": "Results", "text": "The research procedure and analytical approach were outlined", "color": "#FEF0C3", "startPos": 352, "endPos": 374, "beforeText": "The social network analysis (SNA) was applied for graphics and calculation. The analysis was focused on inter-organizational and interregional level. ", "extractionText": "The research procedure", "afterText": " was also discussed.", "attributesHtml": "<div><strong>class:</strong> Results</div><div><strong>attributes:</strong> {}</div>"}];
+    const extractions = [{"index": 0, "class": "Methodology", "text": "Used database administered by the Polish Patent Office", "color": "#D2E3FC", "startPos": 148, "endPos": 200, "beforeText": "The paper presents the structural characteristics of the patent co-ownership network in Poland for the year 2011, which was identified with the use ", "extractionText": "of database administered by the Polish Patent Office", "afterText": ". The social network analysis (SNA) was applied for graphics and calculation. The analysis was focused on inter-organizational and interregional level", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}, {"index": 1, "class": "Methodology", "text": "Applied Social Network Analysis (SNA) for network visualization and calculation", "color": "#D2E3FC", "startPos": 206, "endPos": 276, "beforeText": " patent co-ownership network in Poland for the year 2011, which was identified with the use of database administered by the Polish Patent Office. The ", "extractionText": "social network analysis (SNA) was applied for graphics and calculation", "afterText": ". The analysis was focused on inter-organizational and interregional level. The research procedure was also discussed.", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "Methodology", "text": "Focused on inter-organizational and interregional analysis levels", "color": "#D2E3FC", "startPos": 295, "endPos": 344, "beforeText": "se of database administered by the Polish Patent Office. The social network analysis (SNA) was applied for graphics and calculation. The analysis was ", "extractionText": "focused on inter-organizational and interregional", "afterText": " level. The research procedure was also discussed.", "attributesHtml": "<div><strong>class:</strong> Methodology</div><div><strong>attributes:</strong> {}</div>"}];
     let currentIndex = 0;
     let isPlaying = false;
     let animationInterval = null;

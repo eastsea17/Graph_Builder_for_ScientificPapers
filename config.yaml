@@ -5,7 +5,7 @@ output_dir: "Output/generated"
 ollama:
   base_url: "http://localhost:11434"
   # Default model to use. Options: local_small, local_medium, cloud_large, cloud_huge
-  selected_model: "gpt-oss:120b-cloud" 
+  selected_model: "cloud_large" 
   
   models:
     local_small: "deepseek-r1:8b"
@@ -15,16 +15,19 @@ ollama:
 
 extraction:
   system_prompt: |
-    You are an expert researcher. Your task is to extract structured information from scientific paper abstracts.
-    Extract the following four components:
-    1. Research Background
-    2. Research Purpose
-    3. Research Methodology
-    4. Research Results and Effects
-    
-    Return the result in strictly valid JSON format with keys: "background", "purpose", "methodology", "results".
-    Each value should be a concise list of strings (1-3 key points per category).
-    Do not include any other text.
+    You are an expert scientific researcher specializing in literature review. Your task is to analyze the given paper abstract and extract structured information.
+
+    ### Guidelines:
+    1. **Analyze Context**: Read the entire abstract to understand the flow from problem to solution.
+    2. **Identify Sections**: Look for keywords like 'We propose', 'However', 'Experiments show', etc.
+    3. **Be Specific**: Do not use vague phrases. Extract specific model names, metrics, and finding details.
+    4. **Format**: Return the result strictly as a valid JSON object following the schema provided.
+
+    ### Rules:
+    - Extract 1-3 concise key points for each category.
+    - If information is missing for a category, leave it as an empty list.
+    - **Use English for the values.**
+    - Do not include any explanation or markdown outside the JSON block.
     
 similarity:
   enabled: true

@@ -8,27 +8,57 @@ from ollama_client import OllamaClient  # Fixed import path
 
 # 1. Pydantic 모델 정의: LLM이 뱉어야 할 정확한 구조
 class PaperExtraction(BaseModel):
-    background: List[str] = Field(default_factory=list, description="연구 배경 및 필요성 핵심 요약 (1-3 items)")
-    purpose: List[str] = Field(default_factory=list, description="연구의 구체적인 목적 및 목표 (1-3 items)")
-    methodology: List[str] = Field(default_factory=list, description="사용된 기술, 모델, 알고리즘, 데이터셋 등 방법론 (1-3 items)")
-    results: List[str] = Field(default_factory=list, description="연구 결과, 성과, 성능 지표, 효과 (1-3 items)")
+    background: List[str] = Field(
+        default_factory=list, 
+        description="연구의 배경, 기존 연구의 한계점, 또는 이 연구가 필요한 이유 (Problem statement & Gap)"
+    )
+    purpose: List[str] = Field(
+        default_factory=list, 
+        description="이 논문이 제안하는 핵심 아이디어, 주된 연구 목표, 또는 해결하고자 하는 구체적인 과제 (Main contribution & Objective)"
+    )
+    methodology: List[str] = Field(
+        default_factory=list, 
+        description="제안된 모델, 사용된 알고리즘, 데이터셋, 실험 환경 등 구체적인 연구 방법 (Specific methods, models, datasets)"
+    )
+    results: List[str] = Field(
+        default_factory=list, 
+        description="실험 결과, 달성한 성능 수치(SOTA 달성 등), 정량적/정성적 효과 및 결론 (Key findings, metrics, and conclusion)"
+    )
 
 class Extractor:
     def __init__(self, config):
         self.config = config
         self.client = OllamaClient(config)
         
-        # Pydantic 스키마를 프롬프트에 주입하여 구조화된 출력을 유도
+        # Pydantic 스키마
         schema_json = json.dumps(PaperExtraction.model_json_schema(), indent=2)
-        self.base_system_prompt = (
-            "You are an expert scientific researcher. Extract structured information from the paper abstract.\n"
-            "You MUST return a valid JSON object strictly following this schema:\n"
-            f"```json\n{schema_json}\n```\n"
-            "Rules:\n"
-            "- Extract concise key points for each category.\n"
-            "- Use English for the values.\n"
-            "- Do not include any text outside the JSON block."
-        )
+        
+        # config.yaml에서 프롬프트 가져오기 (없으면 기본값 사용)
+        config_prompt = config.get('extraction', {}).get('system_prompt', "")
+        
+        if config_prompt:
+             # config에 있는 프롬프트에 스키마만 덧붙여서 사용
+            self.base_system_prompt = f"{config_prompt}\n\nSchema:\n```json\n{schema_json}\n```"
+        else:
+            # 개선된 시스템 프롬프트 (Default)
+            self.base_system_prompt = (
+                "You are an expert scientific researcher specializing in literature review. "
+                "Your task is to analyze the given paper abstract and extract structured information.\n\n"
+                
+                "### Guidelines:\n"
+                "1. **Analyze Context**: Read the entire abstract to understand the flow from problem to solution.\n"
+                "2. **Identify Sections**: Look for keywords like 'We propose', 'However', 'Experiments show', etc.\n"
+                "3. **Be Specific**: Do not use vague phrases. Extract specific model names, metrics, and finding details.\n"
+                "4. **Format**: Return the result strictly as a valid JSON object following the schema below.\n\n"
+                
+                f"### Output Schema:\n```json\n{schema_json}\n```\n\n"
+                
+                "### Rules:\n"
+                "- Extract 1-3 concise key points for each category.\n"
+                "- If information is missing for a category, leave it as an empty list.\n"
+                "- **Use English for the values.** (한국어로 추출하려면 이 부분을 'Use Korean'으로 변경)\n"
+                "- Do not include any explanation or markdown outside the JSON block."
+            )
 
     def process_csv(self, file_path):
         try:
