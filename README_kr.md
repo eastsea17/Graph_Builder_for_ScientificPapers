@@ -114,38 +114,38 @@ graph TD
     classDef storage fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:black;
     classDef output fill:#dcedc8,stroke:#558b2f,stroke-width:2px,color:black;
 
-    %% 1. 입력 단계
-    Input([📄 Raw Text<br/>논문 초록 Abstract]):::input
+    %% 1. Input
+    Input([📄 Raw Text<br/>Scientific papers' abstract(text string)]):::input
     
-    %% 2. Extraction 단계
+    %% 2. Extraction
     subgraph S1 [Phase 1: Extraction]
         direction TB
         Extractor(extractor.py):::module
         LLM{LLM + Pydantic}:::logic
-        DataStruct[구조화된 JSON<br/>Background, Purpose,<br/>Methodology, Results]:::storage
+        DataStruct[Structured JSON<br/>Background, Purpose,<br/>Methodology, Results]:::storage
         
         Input --> Extractor
         Extractor --> LLM
         LLM -- Schema Parsing --> DataStruct
     end
 
-    %% 3. Graph Builder 단계
+    %% 3. Graph Builder
     subgraph S2 [Phase 2: Graph Building]
         direction TB
         Builder(graph_builder.py):::module
-        ER{Entity Resolver<br/>임베딩 유사도 분석}:::logic
+        ER{Entity Resolver<br/>Embedding similarity analysis}:::logic
         Files[CSV Files<br/>Nodes & Edges]:::storage
         
         DataStruct --> Builder
-        Builder -- Node/Edge 생성 --> ER
-        ER -- 동의어 통합 (Canonicalization) --> Files
+        Builder -- Node/Edge creation --> ER
+        ER -- Synonym integration (Canonicalization) --> Files
     end
 
-    %% 4. Visualizer 단계
+    %% 4. Visualizer
     subgraph S3 [Phase 3: Visualization]
         direction TB
         Vis(visualizer.py):::module
-        Aligner{Word Aligner<br/>원본-추출 텍스트 매핑}:::logic
+        Aligner{Word Aligner<br/>Original-Extracted text mapping}:::logic
         HTML[Interactive HTML<br/>Highlighting UI]:::output
 
         Files --> Vis
@@ -154,7 +154,7 @@ graph TD
         Aligner --> HTML
     end
 
-    %% 흐름 연결
+    %% Flow
     S1 ==> S2
     S2 ==> S3
 ```
