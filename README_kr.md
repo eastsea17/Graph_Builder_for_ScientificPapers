@@ -1,6 +1,6 @@
 # **Scientific Paper Info Extractor & Graph Builder (Advanced)**
 
-이 도구는 과학 논문 초록(Abstract)에서 구조화된 정보(배경, 목적, 방법론, 결과)를 추출하고, 의미론적(Semantic) 분석을 통해 \*\*지식 그래프(Knowledge Graph)\*\*를 구축하며, 이를 대화형 대시보드로 시각화하는 파이프라인입니다.
+이 도구는 과학 논문 초록(Abstract)에서 구조화된 정보(배경, 목적, 방법론, 결과)를 추출하고, 의미론적(Semantic) 분석을 통해 \*\*지식 그래프(Knowledge Graph) 구축을 위한 Node, Edge List를 도출\*\*하며, 이를 대화형 대시보드로 시각화하는 파이프라인입니다.
 
 최신 업데이트를 통해 **Pydantic 기반의 엄격한 데이터 검증**, **유사 엔티티 자동 병합(Entity Resolution)**, 그리고 **멀티프로세싱 기반의 고속 시각화** 기능이 추가되었습니다.
 
@@ -76,20 +76,9 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 * **Multi-Document Player**:  
   * langextract 라이브러리를 기반으로, 검색 및 필터링이 가능한 사이드바와 개별 논문 뷰어가 결합된 통합 HTML 대시보드를 생성합니다.
 
-## **파일 구조 (File Structure)**
+<img width="3014" height="1394" alt="image" src="https://github.com/user-attachments/assets/8ff3ed35-29f4-4867-914a-8758a99f73c0" />
 
-├── Input  
-│   └── rawdata.csv              \# 논문 초록이 포함된 CSV 파일  
-├── Output  
-│   └── generated/               \# 생성된 결과물 (HTML, CSV, JSONL)  
-├── src  
-│   ├── main.py                  \# 메인 실행 파일  
-│   ├── extractor.py             \# Pydantic 기반 구조화된 정보 추출  
-│   ├── graph\_builder.py         \# Entity Resolution 및 그래프 구축  
-│   ├── visualizer.py            \# 멀티프로세싱 시각화 엔진  
-│   └── ollama\_client.py         \# Ollama API 클라이언트  
-├── config.yaml                  \# 전체 설정 파일  
-└── README.md                    \# 설명서
+
 
 ## **License**
 
