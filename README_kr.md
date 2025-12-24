@@ -105,6 +105,7 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 
 ## System Architecture
 
+```mermaid
 graph TD
     %% 스타일 정의
     classDef input fill:#f9f,stroke:#333,stroke-width:2px,color:black;
@@ -156,6 +157,7 @@ graph TD
     %% 흐름 연결
     S1 ==> S2
     S2 ==> S3
+```
 
 ## **License**
 
