@@ -121,7 +121,7 @@ This module refines knowledge rather than just connecting text.
 
 ```mermaid
 graph TD
-    %% 스타일 정의
+    %% Style
     classDef input fill:#f9f,stroke:#333,stroke-width:2px,color:black;
     classDef module fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:black;
     classDef logic fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,stroke-dasharray: 5 5,color:black;
@@ -129,7 +129,7 @@ graph TD
     classDef output fill:#dcedc8,stroke:#558b2f,stroke-width:2px,color:black;
 
     %% 1. Input
-    Input([📄 Raw Text<br/>Scientific papers' abstract(text string)]):::input
+    Input(["📄 Raw Text<br/>(Scientific papers' abstract(text string)")]):::input
     
     %% 2. Extraction
     subgraph S1 [Phase 1: Extraction]
