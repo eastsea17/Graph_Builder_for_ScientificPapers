@@ -1,6 +1,5 @@
 # **Scientific Paper Info Extractor & Graph Builder (Advanced)**
 
-<<<<<<< HEAD
 This tool extracts structured information (Background, Purpose, Methodology, Results) from paper abstracts using Ollama LLMs, constructs a **Node/Edge Lists of Knowledge Graph** through semantic analysis, and generates an interactive multi-document visualization dashboard.
 
 Recent updates include **Pydantic-based strict data validation**, **Advanced Entity Resolution**, and **Multiprocessing-based high-performance visualization**.
@@ -84,9 +83,23 @@ This module refines knowledge rather than just connecting text.
 * **Multi-Document Player**:  
   * Generates a unified HTML dashboard with a searchable sidebar and an embedded document viewer using the langextract library.
 
+## **File Structure**
 
-<img width="3014" height="1394" alt="image" src="https://github.com/user-attachments/assets/61d76f2d-f20a-4fa0-93c5-7bf45dbb2eb9" />
-
+```text
+.
+├── Input
+│   └── rawdata.csv              # Input CSV containing abstracts
+├── Output
+│   └── generated/               # Generated results (HTML, CSV, JSONL)
+├── src
+│   ├── main.py                  # Entry point
+│   ├── extractor.py             # Pydantic-based structured extraction
+│   ├── graph_builder.py         # Entity Resolution & Graph Construction
+│   ├── visualizer.py            # Multiprocessing Visualization Engine
+│   └── ollama_client.py         # Ollama API Wrapper
+├── config.yaml                  # Configuration file
+└── README.md                    # Documentation
+```
 
 ## **License**
 

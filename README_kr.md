@@ -82,18 +82,21 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 
 ## **파일 구조 (File Structure)**
 
-├── Input  
-│   └── rawdata.csv              \# 논문 초록이 포함된 CSV 파일  
-├── Output  
-│   └── generated/               \# 생성된 결과물 (HTML, CSV, JSONL)  
-├── src  
-│   ├── main.py                  \# 메인 실행 파일  
-│   ├── extractor.py             \# Pydantic 기반 구조화된 정보 추출  
-│   ├── graph\_builder.py         \# Entity Resolution 및 그래프 구축  
-│   ├── visualizer.py            \# 멀티프로세싱 시각화 엔진  
-│   └── ollama\_client.py         \# Ollama API 클라이언트  
-├── config.yaml                  \# 전체 설정 파일  
-└── README.md                    \# 설명서
+```text
+.
+├── Input
+│   └── rawdata.csv              # 논문 초록이 포함된 CSV 파일
+├── Output
+│   └── generated/               # 생성된 결과물 (HTML, CSV, JSONL)
+├── src
+│   ├── main.py                  # 메인 실행 파일
+│   ├── extractor.py             # Pydantic 기반 구조화된 정보 추출
+│   ├── graph_builder.py         # Entity Resolution 및 그래프 구축
+│   ├── visualizer.py            # 멀티프로세싱 시각화 엔진
+│   └── ollama_client.py         # Ollama API 클라이언트
+├── config.yaml                  # 전체 설정 파일
+└── README.md                    # 설명서
+```
 
 ## **License**
 
