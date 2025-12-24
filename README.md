@@ -119,8 +119,7 @@ This module refines knowledge rather than just connecting text.
 
 ## System Architecture
 
-graph TD
-    %% 스타일 정의
+%% 스타일 정의
     classDef input fill:#f9f,stroke:#333,stroke-width:2px,color:black;
     classDef module fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:black;
     classDef logic fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,stroke-dasharray: 5 5,color:black;
