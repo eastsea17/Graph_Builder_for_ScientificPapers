@@ -129,7 +129,7 @@ graph TD
     classDef output fill:#dcedc8,stroke:#558b2f,stroke-width:2px,color:black;
 
     %% 1. Input
-    Input(["📄 Raw Text<br/>(Scientific papers' abstract(text string)")]):::input
+    Input(["📄 Raw Text<br/>(Scientific papers' abstract)"]):::input
     
     %% 2. Extraction
     subgraph S1 [Phase 1: Extraction]
