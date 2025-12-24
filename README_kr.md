@@ -76,6 +76,21 @@ pip install pandas numpy pyyaml tqdm langextract pydantic networkx ollama
 * **Multi-Document Player**:  
   * langextract 라이브러리를 기반으로, 검색 및 필터링이 가능한 사이드바와 개별 논문 뷰어가 결합된 통합 HTML 대시보드를 생성합니다.
 
+## **파일 구조 (File Structure)**
+
+├── Input  
+│   └── rawdata.csv              \# 논문 초록이 포함된 CSV 파일  
+├── Output  
+│   └── generated/               \# 생성된 결과물 (HTML, CSV, JSONL)  
+├── src  
+│   ├── main.py                  \# 메인 실행 파일  
+│   ├── extractor.py             \# Pydantic 기반 구조화된 정보 추출  
+│   ├── graph\_builder.py         \# Entity Resolution 및 그래프 구축  
+│   ├── visualizer.py            \# 멀티프로세싱 시각화 엔진  
+│   └── ollama\_client.py         \# Ollama API 클라이언트  
+├── config.yaml                  \# 전체 설정 파일  
+└── README.md                    \# 설명서
+
 ## **License**
 
 MIT License
